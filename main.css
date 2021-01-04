@@ -36,14 +36,13 @@ h2 {
 }
 #imageManipulation {
     width: 100%;
-    margin: 0px 0px 15px 0px;
 }
 #meImage {
     max-width: 100%;
 }
 #imageManipulationControls {
     width: 100%;
-    margin-top: 15px;
+    margin-top: 5px;
     display: flex;
     flex-wrap: wrap;
     align-items: space-around;
@@ -51,12 +50,17 @@ h2 {
 }
 #imageManipulationControls div {
     width: 45%;
+    margin: 15px 0px 0px 0px;
 }
-#imageManipulationControls input {
+#imageManipulationControls input[type=range] {
     width: 100%;
 }
+#imageManipulationControls input[type=range]:hover {
+    cursor: pointer;
+}
 #resetButton {
-    padding: 2px 3px;
+    padding: 6px 8px;
+    margin: 15px 0px 0px 0px;
     border: 1px solid black;
 }
 #resetButton:hover {
