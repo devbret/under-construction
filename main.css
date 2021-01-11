@@ -10,14 +10,14 @@ body {
 }
 header {
     background-color: white;
-    width: 700px;
+    width: 900px;
     margin: 25px auto 0px auto;
     text-align: center;
-    padding: 25px 15px 0px 15px;
+    padding: 35px 15px 15px 15px;
 }
 main {
     background-color: white;
-    width: 700px;
+    width: 900px;
     margin: 0px auto;
     text-align: center;
     padding: 0px 15px 15px 15px;
@@ -25,10 +25,10 @@ main {
 }
 footer {
     background-color: white;
-    width: 700px;
+    width: 900px;
     margin: 0px auto 25px auto;
     text-align: center;
-    padding: 25px 15px;
+    padding: 35px 15px;
     border-top: 1px solid lightgray;
 }
 footer p {
@@ -47,8 +47,12 @@ a {
 a:hover {
     color: rgb(156, 51, 255);
 }
-#col1, #col2 {
-    width: 50%;
+#col1 {
+    width: 65%;
+    padding: 0px 15px;
+}
+#col2 {
+    width: 35%;
 }
 #aboutMe {
     margin: 0px 0px 30px 0px;
@@ -92,13 +96,13 @@ a:hover {
     cursor: pointer;
     background-color: gold;
 }
-#skillsDiv {
+#skillsDiv, #softSkillsDiv {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
-#skillsDiv p {
+#skillsDiv p, #softSkillsDiv p {
     margin: 15px 15px 10px 15px;
     font-weight: bolder;
 }
@@ -109,7 +113,8 @@ a:hover {
     padding: 15px 15px 0px 15px;
 }
 #socialMedia {
-    padding: 15px 15px 0px 15px;
+    padding: 0px 15px;
+    margin: 0px 0px 25px 0px;
 }
 #blog {
     margin: 0px 0px 15px 0px;
@@ -122,12 +127,12 @@ a:hover {
     padding: 3px;
     border: 1px solid black;
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1400px) {
     #toTop {
         right: 0px;
     }
 }
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 930px) {
     header, main, footer {
         width: 100%;
         margin: 0px;
@@ -136,7 +141,12 @@ a:hover {
         padding: 25px 15px 25px 25px;
     }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 750px) {
+    #col1, #col2 {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 500px) {
     main {
         flex-direction: column-reverse;
     }
@@ -145,8 +155,12 @@ a:hover {
     }
     #col1, #col2 {
         width: 100%;
+        padding: 0px;
     }
     #aboutMe h2 {
         margin-top: 20px;
+    }
+    #socialMedia {
+        margin-bottom: 5px;
     }
 }
