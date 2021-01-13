@@ -10,14 +10,24 @@ body {
 }
 header {
     background-color: white;
-    width: 900px;
+    width: 960px;
     margin: 25px auto 0px auto;
     text-align: center;
     padding: 35px 15px 15px 15px;
 }
+nav {
+    background-color: white;
+    width: 960px;
+    margin: 0px auto;
+    text-align: left;
+    padding: 15px 30px;
+}
+nav p {
+    font-size: 14px;
+}
 main {
     background-color: white;
-    width: 900px;
+    width: 960px;
     margin: 0px auto;
     text-align: center;
     padding: 0px 15px 15px 15px;
@@ -25,7 +35,7 @@ main {
 }
 footer {
     background-color: white;
-    width: 900px;
+    width: 960px;
     margin: 0px auto 25px auto;
     text-align: center;
     padding: 35px 15px;
@@ -49,7 +59,7 @@ a:hover {
 }
 #col1 {
     width: 65%;
-    padding: 0px 15px;
+    padding: 0px 30px 0px 15px;
 }
 #col2 {
     width: 35%;
@@ -96,6 +106,10 @@ a:hover {
     cursor: pointer;
     background-color: gold;
 }
+#skillsHolder {
+    display: flex;
+    flex-direction: column;
+}
 #skillsDiv, #softSkillsDiv {
     display: flex;
     flex-wrap: wrap;
@@ -127,13 +141,13 @@ a:hover {
     padding: 3px;
     border: 1px solid black;
 }
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1460px) {
     #toTop {
         right: 0px;
     }
 }
-@media screen and (max-width: 930px) {
-    header, main, footer {
+@media screen and (max-width: 990px) {
+    header, nav, main, footer {
         width: 100%;
         margin: 0px;
     }
@@ -141,12 +155,7 @@ a:hover {
         padding: 25px 15px 25px 25px;
     }
 }
-@media screen and (max-width: 750px) {
-    #col1, #col2 {
-        width: 50%;
-    }
-}
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
     main {
         flex-direction: column-reverse;
     }
@@ -158,9 +167,21 @@ a:hover {
         padding: 0px;
     }
     #aboutMe h2 {
-        margin-top: 20px;
+        margin-top: 10px;
+    }
+    #imageManipulation {
+        max-width: 400px;
+        margin: auto;
     }
     #socialMedia {
         margin-bottom: 5px;
+    }
+    #skillsHolder {
+        flex-direction: row;
+    }
+}
+@media screen and (max-width: 450px) {
+    #skillsHolder {
+        flex-direction: column;
     }
 }
