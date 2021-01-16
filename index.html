@@ -20,6 +20,7 @@
   <body>
     <header>
       <h1>Bret Bernhoft</h1>
+      <p>Frontend Web Developer</p>
     </header>
     <nav>
       <p>Home</p>
@@ -41,38 +42,40 @@
         </section>
       </section>
       <aside id="col2">
-        <section id="aboutMe">
-          <h2>About Me</h2>
-          <p>I am a Frontend Web Developer, who loves learning; and especially enjoy solving challenges as well as making unique applications for Internet users.</p>
-          <p id="techJourney">I began my journey in technology with WordPress and Web Analytics. More recently I've been learning Frontend Web Development using HTML, CSS and JavaScript.</p>
-          <p>Please feel free to download my resume here.</p>
-        </section>
-        <section id="imageManipulation">
-          <div id="imgHolder">
-            <img src="me.jpg" alt="Image of Bret Bernhoft" id="meImage">
-          </div>
-          <div id="imageManipulationControls">
-            <div>
-              <input type="range" min="-360" max="360" value="0" id="hueRotateSlider">
-              <p>Hue</p>
+        <div id="topAsideDiv">
+          <section class="styledPrimary" id="aboutMe">
+            <h2>About Me</h2>
+            <p>I am a Frontend Web Developer, who loves learning; and especially enjoy solving challenges as well as making unique applications for Internet users.</p>
+            <p id="techJourney">I began my journey in technology with WordPress and Web Analytics. More recently I've been working as a Frontend Web Developer using HTML, CSS and JavaScript.</p>
+            <p>Please feel free to download my resume here.</p>
+          </section>
+          <section class="styledPrimary" id="imageManipulation">
+            <div id="imgHolder">
+              <img src="me.jpg" alt="Image of Bret Bernhoft" id="meImage">
             </div>
-            <div>
-              <input type="range" min="0" max="200" value="100" id="saturateSlider">
-              <p>Saturation</p>
+            <div id="imageManipulationControls">
+              <div>
+                <input type="range" min="-360" max="360" value="0" id="hueRotateSlider">
+                <p>Hue</p>
+              </div>
+              <div>
+                <input type="range" min="0" max="200" value="100" id="saturateSlider">
+                <p>Saturation</p>
+              </div>
+              <div>
+                <input type="range" min="0" max="200" value="100" id="contrastSlider">
+                <p>Contrast</p>
+              </div>
+              <div>
+                <input type="range" min="0" max="200" value="100" id="brightnessSlider">
+                <p>Brightness</p>
+              </div>
             </div>
-            <div>
-              <input type="range" min="0" max="200" value="100" id="contrastSlider">
-              <p>Contrast</p>
-            </div>
-            <div>
-              <input type="range" min="0" max="200" value="100" id="brightnessSlider">
-              <p>Brightness</p>
-            </div>
-          </div>
-          <button id="resetButton">Reset</button>
-        </section>
+            <button id="resetButton">Reset</button>
+          </section>
+        </div>
         <div id="skillsHolder">
-          <section>
+          <section class="styledPrimary">
             <h2>Technical Skills</h2>
             <div id="skillsDiv">
               <p>HTML</p>
@@ -85,7 +88,7 @@
               <p>Typescript</p>
             </div>
           </section>
-          <section>
+          <section class="styledPrimary">
             <h2>Soft Skills</h2>
             <div id="softSkillsDiv">
               <p>Active Listening</p>
@@ -97,7 +100,7 @@
             </div>
           </section>
         </div>
-        <section>
+        <section class="styledPrimary" id="contactInfo">
           <h2>Contact Information</h2>
           <p id="socialMedia">You can find me on <a href="https://www.linkedin.com/in/bernhoftbret/" target="_blank">LinkedIn</a>, <a href="https://github.com/devbret" target="_blank">GitHub</a>, <a href="https://twitter.com/devbret_" target="_blank">Twitter</a>, <a href="https://www.reddit.com/user/devbret_" target="_blank">Reddit</a>, <a href="https://www.youtube.com/channel/UCBMBV5qHgY4B73fkWhFZvqw" target="_blank">YouTube</a>, <a href="https://www.pinterest.com/devbret/" target="_blank">Pinterest</a> and <a href="https://www.quora.com/profile/Bret-Bernhoft-1" target="_blank">Quora</a>. Or you can email me via oldbretb@gmail.com.</p>
         </section>
