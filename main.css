@@ -15,6 +15,9 @@ header {
     text-align: center;
     padding: 35px 15px 15px 15px;
 }
+header p {
+    font-size: 20px;
+}
 nav {
     background-color: white;
     width: 960px;
@@ -30,7 +33,6 @@ main {
     width: 960px;
     margin: 0px auto;
     text-align: center;
-    padding: 0px 15px 15px 15px;
     display: flex;
 }
 footer {
@@ -38,17 +40,18 @@ footer {
     width: 960px;
     margin: 0px auto 25px auto;
     text-align: center;
-    padding: 35px 15px;
-    border-top: 1px solid lightgray;
+    padding: 50px 15px;
 }
 footer p {
     font-size: 12px;
 }
 h1 {
     font-size: 60px;
+    text-shadow: 1px 1px lightgray, 1px -1px lightgray, -1px 1px lightgray, -1px -1px lightgray;
+    margin: 0px 0px 10px 0px;
 }
 h2 {
-    font-size: 26px;
+    font-size: 28px;
     margin: 30px 0px 15px 0px;
 }
 a {
@@ -57,15 +60,23 @@ a {
 a:hover {
     color: rgb(156, 51, 255);
 }
+.styledPrimary {
+    background-color: white;
+    padding: 15px 15px;
+    margin: 15px 0px 0px 0px;
+    border: 1px solid lightgray;
+}
+.styledPrimary h2 {
+    margin: 0px 0px 15px 0px;
+}
 #col1 {
     width: 65%;
-    padding: 0px 30px 0px 15px;
+    padding: 0px 30px;
 }
 #col2 {
     width: 35%;
-}
-#aboutMe {
-    margin: 0px 0px 30px 0px;
+    background-color: rgba(255, 156, 51, 0.33);
+    padding: 0px 15px;
 }
 #techJourney {
     margin: 15px 0px;
@@ -113,6 +124,9 @@ a:hover {
     display: flex;
     flex-direction: column;
 }
+#skillsHolder section h2 {
+    margin-bottom: 5px;
+}
 #skillsDiv, #softSkillsDiv {
     display: flex;
     flex-wrap: wrap;
@@ -120,8 +134,9 @@ a:hover {
     justify-content: center;
 }
 #skillsDiv p, #softSkillsDiv p {
-    margin: 15px 15px 10px 15px;
+    margin: 10px 5px 10px 5px;
     font-weight: bolder;
+    font-size: 15px;
 }
 #intro {
     padding: 0px 15px;
@@ -129,9 +144,8 @@ a:hover {
 #websiteDescription {
     padding: 15px 15px 0px 15px;
 }
-#socialMedia {
-    padding: 0px 15px;
-    margin: 0px 0px 25px 0px;
+#contactInfo {
+    margin-bottom: 15px;
 }
 #blog {
     margin: 0px 0px 15px 0px;
@@ -142,7 +156,7 @@ a:hover {
     bottom: 0px;
     background: white;
     padding: 3px;
-    border: 1px solid black;
+    border: 1px solid lightgray;
 }
 @media screen and (max-width: 1460px) {
     #toTop {
@@ -155,36 +169,60 @@ a:hover {
         margin: 0px;
     }
     footer {
-        padding: 25px 15px 25px 25px;
+        padding: 50px 25px;
     }
 }
 @media screen and (max-width: 650px) {
     main {
         flex-direction: column-reverse;
     }
-    h1 {
-        font-size: 45px;
-    }
     #col1, #col2 {
         width: 100%;
         padding: 0px;
     }
-    #aboutMe h2 {
-        margin-top: 10px;
+    #col2 {
+        padding: 0px 15px;
+    }
+    #topAsideDiv {
+        display: flex;
+        align-items: space-around;
+        justify-content: space-around;
+    }
+    #aboutMe {
+        width: 37.5%;
     }
     #imageManipulation {
-        max-width: 400px;
-        margin: auto;
+        width: 57.5%;
     }
     #socialMedia {
         margin-bottom: 5px;
     }
     #skillsHolder {
         flex-direction: row;
+        justify-content: space-around;
+    }
+    #skillsHolder section {
+        width: 47.5%;
     }
 }
 @media screen and (max-width: 450px) {
+    h1 {
+        font-size: 45px;
+    }
+    #topAsideDiv {
+        flex-direction: column;
+    }
+    #aboutMe {
+        width: 100%;
+        padding-bottom: 20px;
+    }
+    #imageManipulation {
+        width: 100%;
+    }
     #skillsHolder {
         flex-direction: column;
+    }
+    #skillsHolder section {
+        width: 100%;
     }
 }
