@@ -1,2 +1,2 @@
-# Under Construction
-The code that I used as a placeholder for my portfolio website, while the first version was being built.
+# Portfolio Website
+The code that I use for my portfolio website; which is constantly under construction. The goal of this repository is to demonstrate the progress I've made on this personally significant project over time.
