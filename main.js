@@ -1,13 +1,4 @@
 function main() {
-    //Time logic.
-    const timer = document.querySelector(`#timer`);
-    const then = new Date(2021, 1, 1);
-    const now = new Date();
-    timer.innerHTML = `Which means there are exactly <b>${((then.getTime() - now.getTime()) / 86400000).toFixed(4)} days</b> left for me to finish building my portfolio.`;
-    const masterInterval = setInterval(function(){
-        const now = new Date();
-        timer.innerHTML = `Which means there are exactly <b>${((then.getTime() - now.getTime()) / 86400000).toFixed(4)} days</b> left for me to finish building my portfolio.`;
-    },1000);
     //Image manipulation logic.
     const meImage = document.querySelector(`#meImage`);
     const hueRotateSlider = document.querySelector(`#hueRotateSlider`);
@@ -34,5 +25,14 @@ function main() {
         contrastSlider.value = `100`;
         brightnessSlider.value = `100`;
     });
+    //Time logic.
+    const timer = document.querySelector(`#timer`);
+    const then = new Date(2021, 0, 17);
+    const now = new Date();
+    timer.innerHTML = `This website was first launched <b>${((now.getTime() - then.getTime()) / 86400000).toFixed(4)} days</b> ago.`;
+    const masterInterval = setInterval(function(){
+        const now = new Date();
+        timer.innerHTML = `This website was first launched <b>${((now.getTime() - then.getTime()) / 86400000).toFixed(4)} days</b> ago.`;
+    },1000);
 }
 main();
