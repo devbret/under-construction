@@ -28,13 +28,31 @@
     <main>
       <section id="col1">
         <section>
-          <h2>Under Construction</h2>
-          <p id="intro">Thank you for visting my portfolio, which is currently under construction. Please check back on <b>02/01/2021</b> for the release of a new website. <span id="timer"></span></p>
-          <p id="websiteDescription">My portfolio website will feature a blog and recent projects I've completed; as well as a few extra features. And will be built (primarily) with HTML, CSS and JavaScript.</p>
-        </section>
-        <section>
           <h2>Projects</h2>
-          <p>Coming soon.</p>
+          <div id="projectsContainer">
+            <div class="homePageProject">
+              <img src="jsGamesWidget.jpg">
+              <div class="projectDetails">
+                <h3>JavaScript Games</h3>
+                <p>Seven interactive games that teach users JavaScript fundamentals. Built using HTML, CSS and JavaScript.</p>
+                <div class="projectLinkBox">
+                  <p><a href="https://github.com/devbret/javascript-games-widget" target="_blank">Code On GitHub</a></p>
+                  <p><a href="/javascript-games/">Live Demo</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="homePageProject" id="lastHomePageProject">
+              <img src="tipoffAnalytics.jpg">
+              <div class="projectDetails">
+                <h3>Tipoff Analytics</h3>
+                <p>A multi-page website for a company known as "Tipoff Analytics". Built using HTML, CSS and JavaScript.</p>
+                <div class="projectLinkBox">
+                  <p><a href="https://github.com/devbret/tipoff-analytics" target="_blank">Code On GitHub</a></p>
+                  <p><a href="http://tipoffanalytics.com/" target="_blank">Live Demo</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
         <section id="blog">
           <h2>Blog Articles</h2>
@@ -45,9 +63,9 @@
         <div id="topAsideDiv">
           <section class="styledPrimary" id="aboutMe">
             <h2>About Me</h2>
-            <p>I am a Frontend Web Developer, who loves learning; and especially enjoy solving challenges as well as making unique applications for Internet users.</p>
+            <p id="initialGreeting">Hello, my name is Bret Bernhoft. And thank you for visiting my portfolio website. Please feel free to download my resume here, and engage with the projects and blog posts throughout.</p>
+            <p>I am a Frontend Web Developer, who loves learning; especially when solving challenges as part of making unique applications for Internet users across the global Web.</p>
             <p id="techJourney">I began my journey in technology with WordPress and Web Analytics. More recently I've been working as a Frontend Web Developer using HTML, CSS and JavaScript.</p>
-            <p>Please feel free to download my resume here.</p>
           </section>
           <section class="styledPrimary" id="imageManipulation">
             <div id="imgHolder">
@@ -93,10 +111,10 @@
             <div id="softSkillsDiv">
               <p>Active Listening</p>
               <p>Teamwork</p>
-              <p>Clear Communication</p>
-              <p>Leadership</p>
-              <p>Community Building</p>
               <p>Mindfulness</p>
+              <p>Clear Communication</p>
+              <p>Community Building</p>
+              <p>Leadership</p>
             </div>
           </section>
         </div>
@@ -111,6 +129,7 @@
     </main>
     <footer>
       <p>Built By: Bret Bernhoft</p>
+      <p id="intro"><span id="timer"></span></p>
     </footer>
     <script src="main.js" defer></script>
   </body>
