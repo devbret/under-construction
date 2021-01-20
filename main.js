@@ -25,6 +25,17 @@ function main() {
         contrastSlider.value = `100`;
         brightnessSlider.value = `100`;
     });
+    //Image resizing logic.
+    window.addEventListener(`load`, function(){
+        const imgWidth = meImage.clientWidth;
+        meImage.style.width = `100%`;
+        meImage.style.maxHeight = `${imgWidth}px`;
+    });
+    window.addEventListener(`resize`, function(){
+        const imgWidth = meImage.clientWidth;
+        meImage.style.width = `100%`;
+        meImage.style.maxHeight = `${imgWidth}px`;
+    });
     //Time logic.
     const timer = document.querySelector(`#timer`);
     const then = new Date(2021, 0, 17);
