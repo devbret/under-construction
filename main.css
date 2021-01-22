@@ -31,6 +31,7 @@ nav p {
 main {
     background-color: white;
     width: 960px;
+    padding: 0px 15px;
     margin: 0px auto;
     text-align: center;
     display: flex;
@@ -108,7 +109,7 @@ a:hover {
 }
 #col1 {
     width: 65%;
-    padding: 0px 30px;
+    padding: 0px 15px 0px 0px;
 }
 #lastHomePageProject {
     margin-bottom: 0px;
@@ -124,6 +125,9 @@ a:hover {
     flex-wrap: wrap;
     align-items: space-around;
     justify-content: space-around;
+}
+#aboutMe {
+    text-align: left;
 }
 #initialGreeting {
     margin-bottom: 15px;
@@ -197,6 +201,9 @@ a:hover {
 }
 #contactInfo {
     margin-bottom: 15px;
+}
+#socialMedia {
+    text-align: left;
 }
 #blog {
     margin: 0px 0px 15px 0px;
@@ -279,7 +286,7 @@ a:hover {
         width: 47.5%;
     }
     #projectsContainer {
-        padding: 0px 15px;
+        padding: 0px;
     }
 }
 @media screen and (max-width: 550px) {
