@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0PJ3QC53HS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-0PJ3QC53HS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="author" content="Bret Bernhoft">
+    <meta name="description" content="Accepts text and produces a report on word volume and frequency.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Analyzer - Bret Bernhoft</title>
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="textAnalyzer.css">
+  </head>
+  <body>
+    <header>
+      <h1>Text Analyzer</h1>
+      <p>Discovering Trends Among Words</p>
+    </header>
+    <nav>
+      <p><a href="/">Home</a> >> Text Analyzer</p>
+    </nav>
+    <main>
+      <section id="col1">
+        <h2>Project Demo</h2>
+        <div id="inputInterface">
+          <input id="userTextInput" placeholder="Enter text here">
+          <div id="buttons">
+            <button id="optionsButton">Options</button>
+            <button id="submitButton">Submit</button>
+          </div>
+        </div>
+        <div id="options">
+          <h3>Options</h3>
+          <div class="innerOptionsDiv" id="defaultWordsExclude">
+            <input type="checkbox" checked="true" id="exclude">
+            <p class="optionsTextSpacing">Exclude default words</p>
+          </div>
+          <div class="innerOptionsDiv" id="extraWordsDiv">
+            <input id="extraWords" placeholder="Enter comma separated words here">
+            <p class="optionsTextSpacingVertical">Additional words to exclude</p>
+          </div>
+          <div class="variableNumbersToDisplay innerOptionsDiv">
+            <div>
+              <input type="range" min="0" max="100" value="50" id="numOfTwoLetters">
+              <p id="numOfTwoLettersRep">50</p>
+            </div>
+            <p class="optionsTextSpacingVertical">Number of two letter combos to display</p>
+          </div>
+          <div class="variableNumbersToDisplay innerOptionsDiv">
+            <div>
+              <input type="range" min="0" max="100" value="50" id="numOfSingleWords">
+              <p id="numOfSingleWordsRep">50</p>
+            </div>
+            <p class="optionsTextSpacingVertical">Number of single words to display</p>
+          </div>
+          <div class="variableNumbersToDisplay innerOptionsDiv">
+            <div>
+              <input type="range" min="0" max="100" value="50" id="numOfTwoWordPhrases">
+              <p id="numOfTwoWordPhrasesRep">50</p>
+            </div>
+            <p class="optionsTextSpacingVertical">Number of two word phrases to display</p>
+          </div>
+        </div>
+        <div id="results">
+          <p>Enter text into the field above, and press Submit for your results. Or press Options for additional settings.</p>
+        </div>
+        <h2>Project Description</h2>
+      </section>
+      <aside id="col2">
+        <div id="topAsideDiv">
+          <section class="styledPrimary" id="aboutMe">
+            <h2>About Me</h2>
+            <p id="initialGreeting">Hello, my name is Bret Bernhoft. And thank you for visiting my portfolio website. Please feel free to download my resume here, and engage with the projects and blog posts throughout.</p>
+            <p>I am a Frontend Web Developer, who loves learning; especially when solving challenges as part of making unique applications for Internet users across the global Web.</p>
+            <p id="techJourney">I began my journey in technology with WordPress and Web Analytics. More recently I've been working as a Frontend Web Developer using HTML, CSS and JavaScript.</p>
+          </section>
+          <section class="styledPrimary" id="imageManipulation">
+            <div id="imgHolder">
+              <img src="/me.jpg" alt="Image of Bret Bernhoft" id="meImage">
+            </div>
+            <div id="imageManipulationControls">
+              <div>
+                <input type="range" min="-360" max="360" value="0" id="hueRotateSlider">
+                <p>Hue</p>
+              </div>
+              <div>
+                <input type="range" min="0" max="200" value="100" id="saturateSlider">
+                <p>Saturation</p>
+              </div>
+              <div>
+                <input type="range" min="0" max="200" value="100" id="contrastSlider">
+                <p>Contrast</p>
+              </div>
+              <div>
+                <input type="range" min="0" max="200" value="100" id="brightnessSlider">
+                <p>Brightness</p>
+              </div>
+            </div>
+            <button id="resetButton">Reset</button>
+          </section>
+        </div>
+        <div id="skillsHolder">
+          <section class="styledPrimary">
+            <h2>Technical Skills</h2>
+            <div id="skillsDiv">
+              <p>HTML</p>
+              <p>CSS</p>
+              <p>JavaScript</p>
+              <p>React</p>
+              <p>Git</p>
+              <p>REST APIs</p>
+              <p>SASS</p>
+              <p>Typescript</p>
+            </div>
+          </section>
+          <section class="styledPrimary">
+            <h2>Soft Skills</h2>
+            <div id="softSkillsDiv">
+              <p>Active Listening</p>
+              <p>Teamwork</p>
+              <p>Mindfulness</p>
+              <p>Clear Communication</p>
+              <p>Community Building</p>
+              <p>Leadership</p>
+            </div>
+          </section>
+        </div>
+        <section class="styledPrimary" id="contactInfo">
+          <h2>Contact Information</h2>
+          <p id="socialMedia">You can find me on <a href="https://www.linkedin.com/in/bernhoftbret/" target="_blank">LinkedIn</a> and <a href="https://github.com/devbret" target="_blank">GitHub</a>. Or you can email me via oldbretb@gmail.com.</p>
+        </section>
+      </aside>
+      <div id="toTop">
+        <p><a href="#">To Top</a></p>
+      </div>
+    </main>
+    <footer>
+      <p>Built By: Bret Bernhoft</p>
+      <p id="intro"><span id="timer"></span></p>
+    </footer>
+    <script src="/main.js"></script>
+    <script src="textAnalyzer.js"></script>
+  </body>
+</html>
