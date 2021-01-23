@@ -1,4 +1,27 @@
 function main() {
+    //Background coloring resize logic.
+    const b = document.querySelector(`body`);
+    const bgColoring = document.querySelector(`#bgColoring`);
+    window.addEventListener(`load`, function(){
+        const w = window.innerWidth;
+        if (w > 990) {
+            bgColoring.style.display = `block`;
+            const bHeight = b.clientHeight;
+            bgColoring.style.height = `${bHeight + 55}px`;
+        } else {
+            bgColoring.style.display = `none`;
+        }
+    });
+    window.addEventListener(`resize`, function(){
+        const w = window.innerWidth;
+        if (w > 990) {
+            bgColoring.style.display = `block`;
+            const bHeight = b.clientHeight;
+            bgColoring.style.height = `${bHeight + 55}px`;
+        } else {
+            bgColoring.style.display = `none`;
+        }
+    });
     //Image manipulation logic.
     const meImage = document.querySelector(`#meImage`);
     const hueRotateSlider = document.querySelector(`#hueRotateSlider`);
