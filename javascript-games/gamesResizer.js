@@ -7,11 +7,11 @@ function main() {
     window.addEventListener(`load`, function(){
         const w = window.innerWidth;
         const bW = b.clientWidth;
-        if (w < 330) {
-            gameContainer.style.width = `${bW}px`;
-            projectOne.style.width = `${bW}px`;
-            frame.style.width = `${bW}px`;
-            gamesHeader.style.width = `${bW}px`;
+        if (w < 360) {
+            gameContainer.style.width = `${bW - 30}px`;
+            projectOne.style.width = `${bW - 30}px`;
+            frame.style.width = `${bW - 30}px`;
+            gamesHeader.style.width = `${bW - 30}px`;
         } else {
             gameContainer.style.width = `100%`;
             projectOne.style.width = `300px`;
@@ -22,11 +22,11 @@ function main() {
     window.addEventListener(`resize`, function(){
         const w = window.innerWidth;
         const bW = b.clientWidth;
-        if (w < 330) {
-            gameContainer.style.width = `${bW}px`;
-            projectOne.style.width = `${bW}px`;
-            frame.style.width = `${bW}px`;
-            gamesHeader.style.width = `${bW}px`;
+        if (w < 360) {
+            gameContainer.style.width = `${bW - 30}px`;
+            projectOne.style.width = `${bW - 30}px`;
+            frame.style.width = `${bW - 30}px`;
+            gamesHeader.style.width = `${bW - 30}px`;
         } else {
             gameContainer.style.width = `100%`;
             projectOne.style.width = `300px`;
