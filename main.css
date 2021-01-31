@@ -6,7 +6,7 @@
     font-family: sans-serif;
 }
 body {
-    background-image: url("/bg.jpg");
+    background-image: url("/bg.webp");
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -113,7 +113,7 @@ a:hover {
     margin: 5px;
 }
 #bgColoring {
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
     width: 100vw;
@@ -152,7 +152,6 @@ a:hover {
 }
 #imageManipulation {
     width: 100%;
-    box-shadow: inset 0px 0px 2px 0px darkgray;
     padding: 15px 15px 25px 15px;
 }
 #imgHolder {
@@ -271,6 +270,9 @@ a:hover {
     }
     .projectDetails {
         padding: 10px 0px 10px 10px;
+    }
+    .projectDemo {
+        margin-top: 15px;
     }
     #col1, #col2 {
         width: 100%;
