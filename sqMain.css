@@ -1,0 +1,17 @@
+#m {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+}
+.rows {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    z-index: -50;
+}
+.blocks {
+    height: 100%;
+    filter: brightness(125%);
+}
