@@ -8,8 +8,6 @@ function main() {
     }
     //The function responsible for generating random colored blocks.
     function generateSquares(){
-        //Clears the body element of any previous contents.
-        //m.innerHTML = ``;
         //Creates the size of the "m" frame.
         const wd = h.offsetWidth;
         const ht = h.offsetHeight;
@@ -26,7 +24,7 @@ function main() {
             //Looping to create inner blocks while there is still space to house/frame them.
             while (remainder > 0) {
                 //Assigning a random number (no larger than ten) to the value rN and subtracting that value from the remainder variable.
-                const rN = Math.floor(Math.random() * 10);
+                const rN = Math.floor(Math.random() * 5);
                 remainder -= rN;
                 //Creating an inner block, assigning its class and appending it within the appropriate row div.
                 const block = document.createElement(`div`);
@@ -40,10 +38,6 @@ function main() {
                 } else {
                     block.style.width = `${rN - remainder}%`;
                 }
-                //Update the info paragraph element with each block's respective width.
-                block.addEventListener(`mouseover`, function(){
-                    innerP.innerHTML = `${block.offsetWidth}px wide`;
-                });
             }
         }
     }
@@ -54,10 +48,10 @@ function main() {
         const hH = h.offsetHeight;
         if (hW <= 943) {
             m.style.width = `${hW}px`;
-            m.style.height = `${hH}px`;
+            m.style.height = `${hH - 5}px`;
         } else {
             m.style.width = `${hW}px`;
-            m.style.height = `${hH}px`;
+            m.style.height = `${hH - 5}px`;
         }
     });
     window.addEventListener(`resize`, function(){
@@ -68,7 +62,7 @@ function main() {
             m.style.height = `${hH - 5}px`;
         } else {
             m.style.width = `${hW}px`;
-            m.style.height = `${hH}px`;
+            m.style.height = `${hH - 5}px`;
         }
     });
 }
