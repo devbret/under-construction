@@ -8,8 +8,10 @@ function main() {
             bgColoring.style.display = `block`;
             const bHeight = b.clientHeight;
             bgColoring.style.height = `${bHeight + 55}px`;
+            bgColoring.style.zIndex = `-10000000`;
         } else {
             bgColoring.style.display = `none`;
+            bgColoring.style.zIndex = `-10000000`;
         }
     });
     window.addEventListener(`resize`, function(){
@@ -18,8 +20,10 @@ function main() {
             bgColoring.style.display = `block`;
             const bHeight = b.clientHeight;
             bgColoring.style.height = `${bHeight + 55}px`;
+            bgColoring.style.zIndex = `-10000000`;
         } else {
             bgColoring.style.display = `none`;
+            bgColoring.style.zIndex = `-10000000`;
         }
     });
     //Image manipulation logic.
