@@ -96,6 +96,14 @@ button:hover {
 #results p {
     margin-top: 15px;
 }
+@media screen and (max-width: 650px) {
+    main {
+        flex-direction: column;
+    }
+    #col1 {
+        padding-bottom: 15px;
+    }
+}
 @media screen and (max-width: 500px) {
     header, main, footer {
         width: 100%;

@@ -13,5 +13,5 @@
 }
 .blocks {
     height: 100%;
-    filter: brightness(125%);
+    filter: brightness(125%) saturate(1.25);
 }

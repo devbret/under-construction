@@ -1,9 +1,9 @@
-function main() {
+(function main(win,doc) {
     //Background coloring resize logic.
-    const b = document.querySelector(`body`);
-    const bgColoring = document.querySelector(`#bgColoring`);
-    window.addEventListener(`load`, function(){
-        const w = window.innerWidth;
+    const b = doc.querySelector(`body`);
+    const bgColoring = doc.querySelector(`#bgColoring`);
+    win.addEventListener(`load`, function(){
+        const w = win.innerWidth;
         if (w > 990) {
             bgColoring.style.display = `block`;
             const bHeight = b.clientHeight;
@@ -14,8 +14,8 @@ function main() {
             bgColoring.style.zIndex = `-10000000`;
         }
     });
-    window.addEventListener(`resize`, function(){
-        const w = window.innerWidth;
+    win.addEventListener(`resize`, function(){
+        const w = win.innerWidth;
         if (w > 990) {
             bgColoring.style.display = `block`;
             const bHeight = b.clientHeight;
@@ -27,12 +27,12 @@ function main() {
         }
     });
     //Image manipulation logic.
-    const meImage = document.querySelector(`#meImage`);
-    const hueRotateSlider = document.querySelector(`#hueRotateSlider`);
-    const saturateSlider = document.querySelector(`#saturateSlider`);
-    const contrastSlider = document.querySelector(`#contrastSlider`);
-    const brightnessSlider = document.querySelector(`#brightnessSlider`);
-    const resetButton = document.querySelector(`#resetButton`);
+    const meImage = doc.querySelector(`#meImage`);
+    const hueRotateSlider = doc.querySelector(`#hueRotateSlider`);
+    const saturateSlider = doc.querySelector(`#saturateSlider`);
+    const contrastSlider = doc.querySelector(`#contrastSlider`);
+    const brightnessSlider = doc.querySelector(`#brightnessSlider`);
+    const resetButton = doc.querySelector(`#resetButton`);
     hueRotateSlider.addEventListener(`input`, function(){
         meImage.style.filter = `hue-rotate(${this.value}deg) saturate(${saturateSlider.value}%) contrast(${contrastSlider.value}%) brightness(${brightnessSlider.value}%)`;
     });
@@ -53,18 +53,18 @@ function main() {
         brightnessSlider.value = `100`;
     });
     //Image resizing logic.
-    window.addEventListener(`load`, function(){
+    win.addEventListener(`load`, function(){
         const imgWidth = meImage.clientWidth;
         meImage.style.width = `100%`;
         meImage.style.maxHeight = `${imgWidth}px`;
     });
-    window.addEventListener(`resize`, function(){
+    win.addEventListener(`resize`, function(){
         const imgWidth = meImage.clientWidth;
         meImage.style.width = `100%`;
         meImage.style.maxHeight = `${imgWidth}px`;
     });
     //Time logic.
-    const timer = document.querySelector(`#timer`);
+    const timer = doc.querySelector(`#timer`);
     const then = new Date(2021, 0, 17);
     const now = new Date();
     timer.innerHTML = `This website was first launched <b>${((now.getTime() - then.getTime()) / 86400000).toFixed(4)} days</b> ago.`;
@@ -72,5 +72,5 @@ function main() {
         const now = new Date();
         timer.innerHTML = `This website was first launched <b>${((now.getTime() - then.getTime()) / 86400000).toFixed(4)} days</b> ago.`;
     },1000);
-}
-main();
+})(window,document)
+//main();

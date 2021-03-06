@@ -17,17 +17,23 @@ header {
     width: 960px;
     margin: 25px auto 0px auto;
     text-align: center;
-    padding: 35px 15px 15px 15px;
+    padding: 15px 15px 15px 15px;
+    position: relative;
+    z-index: -100;
 }
 header p {
     font-size: 20px;
+    background-color: rgba(255, 255, 255,0.93);
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid lightgray;
+    font-weight: bold;
 }
 nav {
     background-color: white;
-    width: 960px;
+    width: 100%;
     margin: 0px auto;
     text-align: left;
-    padding: 15px 30px;
 }
 nav p {
     font-size: 14px;
@@ -52,10 +58,18 @@ footer p {
     font-size: 12px;
     margin: 15px 0px;
 }
+img {
+    border: 1px solid darkgray;
+}
 h1 {
     font-size: 60px;
     text-shadow: 1px 1px lightgray, 1px -1px lightgray, -1px 1px lightgray, -1px -1px lightgray;
-    margin: 0px 0px 10px 0px;
+    margin: 0px 0px 15px 0px;
+    background-color: rgba(255, 255, 255,0.93);
+    display: inline-block;
+    padding: 5px 30px;
+    border: 1px solid lightgray;
+    box-shadow: 0px 0px 3px 1px darkgray;
 }
 h2 {
     font-size: 28px;
@@ -68,6 +82,26 @@ a {
 }
 a:hover {
     color: rgb(156, 51, 255);
+}
+.headerSqueeze {
+    padding: 15px;
+    border: 15px solid rgba(255,156,51.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000000000;
+    display: absolute;
+    z-index: -500;
+    background-color: rgba(255,255,255,0.53);
+    box-shadow: inset 0px 0px 3px 1px darkgray;
+}
+.headerSqueeze p {
+    box-shadow: 0px 0px 3px 1px darkgray;
+}
+.mainNav p {
+    border: 1px solid lightgray;
+    padding: 5px;
 }
 .styledPrimary {
     background-color: white;
@@ -118,8 +152,8 @@ a:hover {
     left: 0px;
     width: 100vw;
     height: 100vw;
-    background: rgba(51, 150, 255,0.925);
-    z-index: -1000;
+    background: rgba(51, 150, 255,0.93);
+    z-index: -10000000;
     overflow: hidden;
 }
 #col1 {
@@ -131,7 +165,7 @@ a:hover {
 }
 #col2 {
     width: 35%;
-    background-color: rgba(255, 156, 51, 0.33);
+    background-color: rgba(255, 156, 51, 0.5);
     padding: 0px 15px;
 }
 #projectsContainer {
@@ -263,7 +297,7 @@ a:hover {
 }
 @media screen and (max-width: 650px) {
     main {
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
     .homePageProject {
         flex-direction: row;
@@ -306,7 +340,7 @@ a:hover {
         padding: 0px;
     }
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 560px) {
     h1 {
         font-size: 40px;
     }
@@ -332,5 +366,18 @@ a:hover {
     }
     #skillsHolder section {
         width: 100%;
+    }
+}
+@media screen and (max-width: 450px) {
+    h1 {
+        font-size: 30px;
+    }
+    header p {
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 300px) {
+    h1 {
+        font-size: 24px;
     }
 }
