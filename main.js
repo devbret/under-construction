@@ -1,4 +1,4 @@
-(function main(win,doc) {
+(function(win,doc) {
     //Background coloring resize logic.
     const b = doc.querySelector(`body`);
     const bgColoring = doc.querySelector(`#bgColoring`);
@@ -73,4 +73,3 @@
         timer.innerHTML = `This website was first launched <b>${((now.getTime() - then.getTime()) / 86400000).toFixed(4)} days</b> ago.`;
     },1000);
 })(window,document)
-//main();

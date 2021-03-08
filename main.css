@@ -253,7 +253,7 @@ a:hover {
 #socialMedia {
     text-align: left;
 }
-#blog {
+#openSource, #blog {
     margin: 0px 0px 15px 0px;
 }
 #toTop {

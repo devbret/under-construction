@@ -1,0 +1,28 @@
+{
+  "name": "under-construction",
+  "version": "1.0.0",
+  "description": "This repository conatins the code that I am actively using for my self-hosted portfolio website, which is constantly under construction. The goal of this repo is to demonstrate the progress I've made on this personally significant project over an extended period of time.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devbret/under-construction.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devbret/under-construction/issues"
+  },
+  "homepage": "https://github.com/devbret/under-construction#readme",
+  "devDependencies": {
+    "eslint": "^7.21.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1"
+  }
+}
