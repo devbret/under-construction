@@ -83,6 +83,13 @@ a {
 a:hover {
     color: rgb(156, 51, 255);
 }
+ul {
+  padding: 0px 0px 0px 45px;
+  margin: 15px 0px;
+}
+li {
+  margin: 5px 0px;
+}
 .headerSqueeze {
     padding: 15px;
     border: 15px solid rgba(255,156,51.1);
@@ -279,7 +286,7 @@ a:hover {
     }
     .homePageProject img {
         width: 100%;
-        
+
     }
 }
 @media screen and (max-width: 800px) {

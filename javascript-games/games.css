@@ -205,7 +205,7 @@ button:hover {
 }
 #gameTwoQuestionTextP {
     margin-bottom: 10px;
-} 
+}
 #answersDIV {
     width: 100%;
     border: 1px solid black;
@@ -286,7 +286,7 @@ button:hover {
     flex-direction: column;
 }
 #gamesDescription {
-    max-width: 100%;
+    width: 100%;
     margin: 0px;
     text-align: left;
 }
