@@ -55,7 +55,7 @@ function gamesGo() {
     }
   }
   function golden(e) {
-    for (let i = 0; i < gameArray.length; i++) {
+    for (let i = 0; i < gameArray.length; i += 1) {
       gameArray[i].style.backgroundColor = 'white';
       gameArray[i].removeEventListener('mouseover', changeToGold);
       gameArray[i].removeEventListener('mouseout', changeToWhite);
@@ -183,7 +183,7 @@ function gamesGo() {
     // Paragraph element for displaying answer, as it is revealed.
     const answerRevealedP = document.createElement('p');
     answerRevealedP.id = 'answerRevealedP';
-    for (let i = 0; i < word.length; i++) {
+    for (let i = 0; i < word.length; i += 1) {
       const temp = document.createElement('span');
       temp.textContent = '_';
       answerRevealedP.appendChild(temp);
@@ -224,19 +224,19 @@ function gamesGo() {
       const inputValue = userInput.value.toLowerCase();
       if (inputValue.length === 1 && correctCharacters < wordSplit.length && (inputValue.charCodeAt(0) >= 97 && inputValue.charCodeAt(0) <= 122)) {
         if (guesses.every((g) => g !== inputValue)) {
-          totalGuesses++;
+          totalGuesses += 1;
           guesses.push(inputValue);
           let present = false;
-          for (let i = 0; i < wordSplit.length; i++) {
+          for (let i = 0; i < wordSplit.length; i += 1) {
             if (inputValue === wordSplit[i]) {
               answerRevealedP.children[i].textContent = inputValue;
-              correctCharacters++;
+              correctCharacters += 1;
               present = true;
               if (correctCharacters === wordSplit.length) {
                 answerRevealedP.style.borderBottom = '1px solid lime';
                 const retrievedMaster = localStorage.getItem('master');
                 const retrievedMasterParsed = JSON.parse(retrievedMaster);
-                retrievedMasterParsed.gameOne.wins++;
+                retrievedMasterParsed.gameOne.wins += 1;
                 retrievedMasterParsed.gameOne.totalGuesses += totalGuesses;
                 retrievedMasterParsed.gameOne.totalIncorrectGuesses += incorrectGuesses.length;
                 localStorage.setItem('master', JSON.stringify(retrievedMasterParsed));
@@ -282,7 +282,7 @@ function gamesGo() {
       const retrievedMasterParsed = JSON.parse(retrievedMaster);
       function correctGuessRate() {
         const temp = ((retrievedMasterParsed.gameOne.totalGuesses - retrievedMasterParsed.gameOne.totalIncorrectGuesses) / retrievedMasterParsed.gameOne.totalGuesses) * 100;
-        if (isNaN(temp)) {
+        if (Number.isNaN(temp)) {
           return 0;
         }
         return temp;
@@ -663,13 +663,13 @@ function gamesGo() {
     primaryInterface.appendChild(answersDIV);
     // Different answers, organized in random order, to selected question.
     let randomizedAnswers = currentQuestion.answers.sort(randomize);
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i += 1) {
       randomizedAnswers = randomizedAnswers.sort(randomize);
     }
     // Populating the app with the correct buttons and associated answers.
     const answerButtonArray = [];
     let answered = 0;
-    for (let i = 0; i < randomizedAnswers.length; i++) {
+    for (let i = 0; i < randomizedAnswers.length; i += 1) {
       const tempAnswerButton = document.createElement('button');
       answerButtonArray.push(tempAnswerButton);
       tempAnswerButton.classList.add('multiChoiceAnswers');
@@ -677,10 +677,10 @@ function gamesGo() {
       answersDIV.appendChild(tempAnswerButton);
       // Giving each button an event listener for a click action.
       tempAnswerButton.addEventListener('click', function () {
-        answered++;
+        answered += 1;
         const retrievedMaster = localStorage.getItem('master');
         const retrievedMasterParsed = JSON.parse(retrievedMaster);
-        for (let j = 0; j < randomizedAnswers.length; j++) {
+        for (let j = 0; j < randomizedAnswers.length; j += 1) {
           if (randomizedAnswers[j].correct) {
             answerButtonArray[j].classList.add('greenButton');
             answerButtonArray[j].style.color = 'lime';
@@ -690,11 +690,11 @@ function gamesGo() {
             this.style.border = '1px solid darkgray';
           }
           if (randomizedAnswers[j].correct && i === j && answered === 1) {
-            retrievedMasterParsed.gameTwo.totalCorrectGuesses++;
+            retrievedMasterParsed.gameTwo.totalCorrectGuesses += 1;
           }
         }
         if (answered === 1) {
-          retrievedMasterParsed.gameTwo.totalGuesses++;
+          retrievedMasterParsed.gameTwo.totalGuesses += 1;
         }
         localStorage.setItem('master', JSON.stringify(retrievedMasterParsed));
         gameTwoNextButton.classList.add('greenButton');
@@ -727,7 +727,7 @@ function gamesGo() {
       // Function for calculating the Correct Guess Rate.
       function correctGuessRate() {
         const temp = (retrievedMasterParsed.gameTwo.totalCorrectGuesses / retrievedMasterParsed.gameTwo.totalGuesses) * 100;
-        if (isNaN(temp)) {
+        if (Number.isNaN(temp)) {
           return 0;
         }
         return temp;
@@ -1047,16 +1047,16 @@ function gamesGo() {
         return total;
       }, []).join('');
       if (correctAnswers < 1 && data.length > 0 && incorrectGuessesArray.every((g) => g !== data)) {
-        totalGuesses++;
+        totalGuesses += 1;
         const retrievedMaster = localStorage.getItem('master');
         const retrievedMasterParsed = JSON.parse(retrievedMaster);
         if (currentChallenge.solutions.some((s) => s === data)) {
           gameThreeTotalGuesses.innerText = `Total Guesses: ${totalGuesses}`;
-          correctAnswers++;
+          correctAnswers += 1;
           gameThreeChallengeTextP.textContent = currentChallenge.complete;
           gameThreeChallengeTextP.style.borderBottom = '1px solid lime';
           gameThreeNextButton.classList.add('greenButton');
-          retrievedMasterParsed.gameThree.totalCorrectGuesses++;
+          retrievedMasterParsed.gameThree.totalCorrectGuesses += 1;
           retrievedMasterParsed.gameThree.totalGuesses += totalGuesses;
           retrievedMasterParsed.gameThree.clueClicks += clueClicks;
           localStorage.setItem('master', JSON.stringify(retrievedMasterParsed));
@@ -1089,9 +1089,9 @@ function gamesGo() {
         while (receivedClues[rN] === 1) {
           rN = Math.floor(Math.random() * currentChallenge.clues.length);
         }
-        if (correctAnswers < 1 && e.buttons == 1) {
-          clueClicks++;
-          guessesRemaining--;
+        if (correctAnswers < 1 && e.buttons === 1) {
+          clueClicks += 1;
+          guessesRemaining -= 1;
           const clue = currentChallenge.clues[rN];
           gameThreeChallengeTextP.textContent = clue;
           receivedClues[rN] = 1;
@@ -1159,7 +1159,7 @@ function gamesGo() {
       // Function for calculating the Correct Guess Rate.
       function correctGuessRate() {
         const temp = (retrievedMasterParsed.gameThree.totalCorrectGuesses / retrievedMasterParsed.gameThree.totalGuesses) * 100;
-        if (isNaN(temp)) {
+        if (Number.isNaN(temp)) {
           return 0;
         }
         return temp;
@@ -1331,7 +1331,7 @@ function gamesGo() {
     ];
     // Selecting eight random objects from the Library array.
     const almostLibrary = [];
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 8; i += 1) {
       let rN = Math.floor(Math.random() * preLibrary.length);
       while (almostLibrary.some((l) => l === preLibrary[rN])) {
         rN = Math.floor(Math.random() * preLibrary.length);
@@ -1364,7 +1364,7 @@ function gamesGo() {
     const retrievedMaster = localStorage.getItem('master');
     const retrievedMasterParsed = JSON.parse(retrievedMaster);
     // Generating squares, the main for loop.
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < 16; i += 1) {
       activated[i] = 0;
       const tempSquare = document.createElement('div');
       tempSquare.classList.add('tempSquares');
@@ -1394,7 +1394,7 @@ function gamesGo() {
       }
       function matched() {
         if (activeSquares.length < 2) {
-          gameFourGuesses++;
+          gameFourGuesses += 1;
           if (activeSquares.length === 0 && !activated[i]) {
             activeSquares.push({
               display: tempSquareP.innerText,
@@ -1441,7 +1441,7 @@ function gamesGo() {
             activated[activeSquares[0].child] = 1;
             activeSquares = [];
             if (activated.every((a) => a === 1)) {
-              retrievedMasterParsed.gameFour.totalWins++;
+              retrievedMasterParsed.gameFour.totalWins += 1;
               retrievedMasterParsed.gameFour.totalGuesses += gameFourGuesses;
               localStorage.setItem('master', JSON.stringify(retrievedMasterParsed));
               squareHolder.style.border = '1px solid lime';
@@ -1483,7 +1483,7 @@ function gamesGo() {
       // Function for calculating the Average Guesses Per Game.
       function guessesPerGame() {
         const temp = retrievedMasterParsed.gameFour.totalGuesses / retrievedMasterParsed.gameFour.totalWins;
-        if (isNaN(temp)) {
+        if (Number.isNaN(temp)) {
           return 0;
         }
         return temp;
@@ -1518,7 +1518,7 @@ function gamesGo() {
     }
     function calcDiff(s) {
       const temp = (movesMade / s) * 100;
-      if (!isFinite(temp)) {
+      if (!Number.isFinite(temp)) {
         return 0;
       }
       return temp;
@@ -1676,7 +1676,7 @@ function gamesGo() {
       e.preventDefault();
       const id = e.dataTransfer.getData('id');
       if (e.target.id !== id) {
-        movesMade++;
+        movesMade += 1;
         const currentObj = e.target.getBoundingClientRect();
         const x = e.offsetX;
         const newNode = document.querySelector(`#${id}`);
@@ -1693,13 +1693,13 @@ function gamesGo() {
         gameFiveDiffP.innerText = `Percentage Of Average: ${calcDiff(guessesPerGame(retrievedMasterParsed)).toFixed(2)}%`;
         const chs = gameFiveReDIV.children;
         let complete = 1;
-        for (let q = 0; q < codeChoice.length; q++) {
+        for (let q = 0; q < codeChoice.length; q += 1) {
           if (chs[q].children[0].innerText !== String(q)) {
             complete = 0;
           }
         }
         if (complete === 1) {
-          retrievedMasterParsed.gameFive.totalWins++;
+          retrievedMasterParsed.gameFive.totalWins += 1;
           retrievedMasterParsed.gameFive.totalGuesses += movesMade;
           localStorage.setItem('master', JSON.stringify(retrievedMasterParsed));
           gameFiveReDIV.style.borderBottom = '1px solid lime';
@@ -1855,7 +1855,7 @@ function gamesGo() {
     }
     function movesPerGame(x) {
       const temp = x.gameSix.totalMoves / x.gameSix.totalWins;
-      if (isNaN(temp)) {
+      if (Number.isNaN(temp)) {
         return 0;
       }
       return temp;
@@ -1866,7 +1866,7 @@ function gamesGo() {
     let isActive = true;
     const factsChosen = [];
     // Creating the ten different interactive circles.
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i += 1) {
       clickedOn.push({
         id: `circle${i}`,
         clicked: 0,
@@ -1917,7 +1917,7 @@ function gamesGo() {
         mouseIsHovering = false;
       }
       function onMouseDown(e) {
-        if (e.button == 0) {
+        if (e.button === 0) {
           // Setting the initial values for an active circle.
           if (isActive) {
             if (mouseIsHovering) {
@@ -1935,7 +1935,7 @@ function gamesGo() {
       }
       function onMouseMove(e) {
         e.preventDefault();
-        if (e.button == 0) {
+        if (e.button === 0) {
           // Making sure the background remains gold while the mouse is hovering over it.
           if (isActive && mouseIsHovering) {
             const playFieldObj = playField.getBoundingClientRect();
@@ -1975,7 +1975,7 @@ function gamesGo() {
         }
       }
       function onMouseUp(e) {
-        if (e.button == 0) {
+        if (e.button === 0) {
           mouseIsDown = false;
           this.style.border = 'darkgray';
           this.style.cursor = 'grab';
@@ -1987,7 +1987,7 @@ function gamesGo() {
           // Adding a click count for the relevant circle.
           clickedOn.forEach((c) => {
             if (c.id === temp.id) {
-              c.clicked++;
+              c.clicked += 1;
             }
           });
           // Checking to see if each circle has been clicked on.
@@ -2003,7 +2003,7 @@ function gamesGo() {
             // Accessing and updating stats.
             const retrievedMaster = localStorage.getItem('master');
             const retrievedMasterParsed = JSON.parse(retrievedMaster);
-            retrievedMasterParsed.gameSix.totalWins++;
+            retrievedMasterParsed.gameSix.totalWins += 1;
             retrievedMasterParsed.gameSix.totalMoves += finalClickCount;
             localStorage.setItem('master', JSON.stringify(retrievedMasterParsed));
           }
@@ -2216,7 +2216,7 @@ function gamesGo() {
         // Accessing and updating stats.
         const retrievedMaster = localStorage.getItem('master');
         const retrievedMasterParsed = JSON.parse(retrievedMaster);
-        retrievedMasterParsed.gameSeven.totalWins++;
+        retrievedMasterParsed.gameSeven.totalWins += 1;
         retrievedMasterParsed.gameSeven.totalTime += timerTotal;
         retrievedMasterParsed.gameSeven.totalInputs += inputTotal;
         localStorage.setItem('master', JSON.stringify(retrievedMasterParsed));
@@ -2252,14 +2252,14 @@ function gamesGo() {
       // Support functions.
       function averageTime() {
         const answer = retrievedMasterParsed.gameSeven.totalTime / retrievedMasterParsed.gameSeven.totalWins;
-        if (isNaN(answer)) {
+        if (Number.isNaN(answer)) {
           return 0;
         }
         return answer;
       }
       function averageInputs() {
         const answer = retrievedMasterParsed.gameSeven.totalInputs / retrievedMasterParsed.gameSeven.totalWins;
-        if (isNaN(answer)) {
+        if (Number.isNaN(answer)) {
           return 0;
         }
         return answer;
@@ -2276,7 +2276,7 @@ function gamesGo() {
   const navArray = [g1, g2, g3, g4, g5, g6, g7];
   const gameFunctionArray = [makeGameOne, makeGameTwo, makeGameThree, makeGameFour, makeGameFive, makeGameSix, makeGameSeven];
   let gameFunctionArraySorted = gameFunctionArray.sort(randomize);
-  for (let z = 0; z < 10; z++) {
+  for (let z = 0; z < 10; z += 1) {
     gameFunctionArraySorted = gameFunctionArraySorted.sort(randomize);
   }
   navArray.forEach((n, index) => {
