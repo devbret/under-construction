@@ -2,22 +2,30 @@
 <html lang="en">
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0PJ3QC53HS"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-0PJ3QC53HS"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag('js', new Date());
 
       gtag('config', 'G-0PJ3QC53HS');
     </script>
-    <meta charset="UTF-8">
-    <meta name="author" content="Bret Bernhoft">
-    <meta name="description" content="Accepts text and produces a report on word volume and frequency.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="author" content="Bret Bernhoft" />
+    <meta
+      name="description"
+      content="Accepts text and produces a report on word volume and frequency."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Text Analyzer - Bret Bernhoft</title>
-    <link rel="stylesheet" href="/main.css">
-    <link rel="stylesheet" href="textAnalyzer.css">
-    <link rel="stylesheet" href="/sqMain.css">
+    <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="textAnalyzer.css" />
+    <link rel="stylesheet" href="/sqMain.css" />
   </head>
   <body>
     <div id="bgColoring"></div>
@@ -35,7 +43,7 @@
         </nav>
         <h2 class="projectDemo">Project Demo</h2>
         <div id="inputInterface">
-          <input id="userTextInput" placeholder="Enter text here">
+          <input id="userTextInput" placeholder="Enter text here" />
           <div id="buttons">
             <button id="optionsButton">Options</button>
             <button id="submitButton">Submit</button>
@@ -44,37 +52,69 @@
         <div id="options">
           <h3>Options</h3>
           <div class="innerOptionsDiv" id="defaultWordsExclude">
-            <input type="checkbox" checked="true" id="exclude">
+            <input type="checkbox" checked="true" id="exclude" />
             <p class="optionsTextSpacing">Exclude default words</p>
           </div>
           <div class="innerOptionsDiv" id="extraWordsDiv">
-            <input id="extraWords" placeholder="Enter comma separated words here">
-            <p class="optionsTextSpacingVertical">Additional words to exclude</p>
+            <input
+              id="extraWords"
+              placeholder="Enter comma separated words here"
+            />
+            <p class="optionsTextSpacingVertical">
+              Additional words to exclude
+            </p>
           </div>
           <div class="variableNumbersToDisplay innerOptionsDiv">
             <div>
-              <input type="range" min="0" max="100" value="50" id="numOfTwoLetters">
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                id="numOfTwoLetters"
+              />
               <p id="numOfTwoLettersRep">50</p>
             </div>
-            <p class="optionsTextSpacingVertical">Number of two letter combos to display</p>
+            <p class="optionsTextSpacingVertical">
+              Number of two letter combos to display
+            </p>
           </div>
           <div class="variableNumbersToDisplay innerOptionsDiv">
             <div>
-              <input type="range" min="0" max="100" value="50" id="numOfSingleWords">
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                id="numOfSingleWords"
+              />
               <p id="numOfSingleWordsRep">50</p>
             </div>
-            <p class="optionsTextSpacingVertical">Number of single words to display</p>
+            <p class="optionsTextSpacingVertical">
+              Number of single words to display
+            </p>
           </div>
           <div class="variableNumbersToDisplay innerOptionsDiv">
             <div>
-              <input type="range" min="0" max="100" value="50" id="numOfTwoWordPhrases">
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                id="numOfTwoWordPhrases"
+              />
               <p id="numOfTwoWordPhrasesRep">50</p>
             </div>
-            <p class="optionsTextSpacingVertical">Number of two word phrases to display</p>
+            <p class="optionsTextSpacingVertical">
+              Number of two word phrases to display
+            </p>
           </div>
         </div>
         <div id="results">
-          <p>Enter text into the field above, and press Submit for your results. Or press Options for additional settings.</p>
+          <p>
+            Enter text into the field above, and press Submit for your results.
+            Or press Options for additional settings.
+          </p>
         </div>
         <h2>Project Description</h2>
       </section>
@@ -82,29 +122,67 @@
         <div id="topAsideDiv">
           <section class="styledPrimary" id="aboutMe">
             <h2>About Me</h2>
-            <p id="initialGreeting">Hello, my name is Bret Bernhoft. And thank you for visiting my portfolio website. Please feel free to download my resume <a href="/bret-bernhoft-resume.pdf" target="_blank">here</a>, and engage with the projects and blog posts throughout.</p>
-            <p>I am a Frontend Web Developer, who loves learning; especially when solving challenges as part of making unique applications for Internet users across the global Web.</p>
-            <p id="techJourney">I began my journey in technology with WordPress and Web Analytics. More recently I've been working with HTML, CSS, JavaScript and React. Eventually I'd like to work as an Artificial Intelligence programmer.</p>
+            <p id="initialGreeting">
+              Hello, my name is Bret Bernhoft. And thank you for visiting my
+              portfolio website. Please feel free to download my resume
+              <a href="/bret-bernhoft-resume.pdf" target="_blank">here</a>, and
+              engage with the projects and blog posts throughout.
+            </p>
+            <p>
+              I am a Frontend Web Developer, who loves learning; especially when
+              solving challenges as part of making unique applications for
+              Internet users across the global Web.
+            </p>
+            <p id="techJourney">
+              I began my journey in technology with WordPress and Web Analytics.
+              More recently I've been working with HTML, CSS, JavaScript and
+              React. Eventually I'd like to work as an Artificial Intelligence
+              programmer.
+            </p>
           </section>
           <section class="styledPrimary" id="imageManipulation">
             <div id="imgHolder">
-              <img src="/me.webp" alt="Image of Bret Bernhoft" id="meImage">
+              <img src="/me.webp" alt="Image of Bret Bernhoft" id="meImage" />
             </div>
             <div id="imageManipulationControls">
               <div>
-                <input type="range" min="-360" max="360" value="0" id="hueRotateSlider">
+                <input
+                  type="range"
+                  min="-360"
+                  max="360"
+                  value="0"
+                  id="hueRotateSlider"
+                />
                 <p>Hue</p>
               </div>
               <div>
-                <input type="range" min="0" max="200" value="100" id="saturateSlider">
+                <input
+                  type="range"
+                  min="0"
+                  max="200"
+                  value="100"
+                  id="saturateSlider"
+                />
                 <p>Saturation</p>
               </div>
               <div>
-                <input type="range" min="0" max="200" value="100" id="contrastSlider">
+                <input
+                  type="range"
+                  min="0"
+                  max="200"
+                  value="100"
+                  id="contrastSlider"
+                />
                 <p>Contrast</p>
               </div>
               <div>
-                <input type="range" min="0" max="200" value="100" id="brightnessSlider">
+                <input
+                  type="range"
+                  min="0"
+                  max="200"
+                  value="100"
+                  id="brightnessSlider"
+                />
                 <p>Brightness</p>
               </div>
             </div>
@@ -139,7 +217,14 @@
         </div>
         <section class="styledPrimary" id="contactInfo">
           <h2>Contact Information</h2>
-          <p id="socialMedia">You can find me on <a href="https://www.linkedin.com/in/bernhoftbret/" target="_blank">LinkedIn</a> and <a href="https://github.com/devbret" target="_blank">GitHub</a>. Or you can email me via oldbretb@gmail.com.</p>
+          <p id="socialMedia">
+            You can find me on
+            <a href="https://www.linkedin.com/in/bernhoftbret/" target="_blank"
+              >LinkedIn</a
+            >
+            and <a href="https://github.com/devbret" target="_blank">GitHub</a>.
+            Or you can email me via oldbretb@gmail.com.
+          </p>
         </section>
       </aside>
       <div id="toTop">

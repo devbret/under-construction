@@ -42,11 +42,15 @@
   contrastSlider.addEventListener('input', function onContrastSliderInput() {
     meImage.style.filter = `hue-rotate(${hueRotateSlider.value}deg) saturate(${saturateSlider.value}%) contrast(${this.value}%) brightness(${brightnessSlider.value}%)`;
   });
-  brightnessSlider.addEventListener('input', function onBrightnessSliderInput() {
-    meImage.style.filter = `hue-rotate(${hueRotateSlider.value}deg) saturate(${saturateSlider.value}%) contrast(${contrastSlider.value}%) brightness(${this.value}%)`;
-  });
+  brightnessSlider.addEventListener(
+    'input',
+    function onBrightnessSliderInput() {
+      meImage.style.filter = `hue-rotate(${hueRotateSlider.value}deg) saturate(${saturateSlider.value}%) contrast(${contrastSlider.value}%) brightness(${this.value}%)`;
+    }
+  );
   resetButton.addEventListener('click', () => {
-    meImage.style.filter = 'hue-rotate(0deg) saturate(100%) contrast(100%) brightness(100%)';
+    meImage.style.filter =
+      'hue-rotate(0deg) saturate(100%) contrast(100%) brightness(100%)';
     hueRotateSlider.value = '0';
     saturateSlider.value = '100';
     contrastSlider.value = '100';
@@ -67,9 +71,15 @@
   const timer = doc.querySelector('#timer');
   const then = new Date(2021, 0, 17);
   const now = new Date();
-  timer.innerHTML = `This website was first launched <b>${((now.getTime() - then.getTime()) / 86400000).toFixed(4)} days</b> ago.`;
+  timer.innerHTML = `This website was first launched <b>${(
+    (now.getTime() - then.getTime()) /
+    86400000
+  ).toFixed(4)} days</b> ago.`;
   setInterval(() => {
     const intervalNow = new Date();
-    timer.innerHTML = `This website was first launched <b>${((intervalNow.getTime() - then.getTime()) / 86400000).toFixed(4)} days</b> ago.`;
+    timer.innerHTML = `This website was first launched <b>${(
+      (intervalNow.getTime() - then.getTime()) /
+      86400000
+    ).toFixed(4)} days</b> ago.`;
   }, 1000);
-}(window, document));
+})(window, document);

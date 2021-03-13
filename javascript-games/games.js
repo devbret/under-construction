@@ -69,7 +69,8 @@ function gamesGo() {
     const rN = Math.random();
     if (rN <= 0.33) {
       return 1;
-    } if (rN >= 0.67) {
+    }
+    if (rN >= 0.67) {
       return -1;
     }
     return 0;
@@ -222,7 +223,12 @@ function gamesGo() {
     // Submit button event listener.
     submit.addEventListener('click', () => {
       const inputValue = userInput.value.toLowerCase();
-      if (inputValue.length === 1 && correctCharacters < wordSplit.length && (inputValue.charCodeAt(0) >= 97 && inputValue.charCodeAt(0) <= 122)) {
+      if (
+        inputValue.length === 1 &&
+        correctCharacters < wordSplit.length &&
+        inputValue.charCodeAt(0) >= 97 &&
+        inputValue.charCodeAt(0) <= 122
+      ) {
         if (guesses.every((g) => g !== inputValue)) {
           totalGuesses += 1;
           guesses.push(inputValue);
@@ -238,15 +244,21 @@ function gamesGo() {
                 const retrievedMasterParsed = JSON.parse(retrievedMaster);
                 retrievedMasterParsed.gameOne.wins += 1;
                 retrievedMasterParsed.gameOne.totalGuesses += totalGuesses;
-                retrievedMasterParsed.gameOne.totalIncorrectGuesses += incorrectGuesses.length;
-                localStorage.setItem('master', JSON.stringify(retrievedMasterParsed));
+                retrievedMasterParsed.gameOne.totalIncorrectGuesses +=
+                  incorrectGuesses.length;
+                localStorage.setItem(
+                  'master',
+                  JSON.stringify(retrievedMasterParsed)
+                );
                 retry.classList.add('greenButton');
               }
             }
           }
           if (!present) {
             incorrectGuesses.push(inputValue);
-            incorrectGuessesP.textContent = `Incorrect Guesses: ${incorrectGuesses.join(', ')}`;
+            incorrectGuessesP.textContent = `Incorrect Guesses: ${incorrectGuesses.join(
+              ', '
+            )}`;
           }
           totalGuessesP.textContent = `Total Guesses: ${totalGuesses}`;
           userInput.value = '';
@@ -265,7 +277,8 @@ function gamesGo() {
     // Details pop-up.
     const gameOneDetails = document.createElement('div');
     gameOneDetails.id = 'gameOneDetails';
-    gameOneDetails.textContent = 'Complete the word by entering a letter into the text field, and then pressing Submit to see if your guess is correct.';
+    gameOneDetails.textContent =
+      'Complete the word by entering a letter into the text field, and then pressing Submit to see if your guess is correct.';
     // Paragraph element for the performance stats.
     const gameOneStatsP = document.createElement('p');
     gameOneStatsP.id = 'gameOneStatsP';
@@ -281,13 +294,21 @@ function gamesGo() {
       const retrievedMaster = localStorage.getItem('master');
       const retrievedMasterParsed = JSON.parse(retrievedMaster);
       function correctGuessRate() {
-        const temp = ((retrievedMasterParsed.gameOne.totalGuesses - retrievedMasterParsed.gameOne.totalIncorrectGuesses) / retrievedMasterParsed.gameOne.totalGuesses) * 100;
+        const temp =
+          ((retrievedMasterParsed.gameOne.totalGuesses -
+            retrievedMasterParsed.gameOne.totalIncorrectGuesses) /
+            retrievedMasterParsed.gameOne.totalGuesses) *
+          100;
         if (Number.isNaN(temp)) {
           return 0;
         }
         return temp;
       }
-      gameOneStatsP.textContent = `Wins: ${retrievedMasterParsed.gameOne.wins}, Total Guesses: ${retrievedMasterParsed.gameOne.totalGuesses} and Correct Guess Rate: ${correctGuessRate().toFixed(2)}%`;
+      gameOneStatsP.textContent = `Wins: ${
+        retrievedMasterParsed.gameOne.wins
+      }, Total Guesses: ${
+        retrievedMasterParsed.gameOne.totalGuesses
+      } and Correct Guess Rate: ${correctGuessRate().toFixed(2)}%`;
       gameOneDetailsClose.addEventListener('click', () => {
         display.removeChild(gameOneDetails);
       });
@@ -311,7 +332,8 @@ function gamesGo() {
           { answer: '2000', correct: false },
           { answer: '1995', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'Who invented the JavaScript language?',
         answers: [
           { answer: 'Susan Winters', correct: false },
@@ -319,7 +341,8 @@ function gamesGo() {
           { answer: 'Lewis Alder', correct: false },
           { answer: 'Brendan Eich', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'Which particular Standard is JavaScript based on?',
         answers: [
           { answer: 'CSS', correct: false },
@@ -327,7 +350,8 @@ function gamesGo() {
           { answer: 'Modern Text', correct: false },
           { answer: 'ECMAScript', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'How many processing threads does JavaScript use?',
         answers: [
           { answer: 'Four', correct: false },
@@ -335,23 +359,28 @@ function gamesGo() {
           { answer: 'Two', correct: false },
           { answer: 'One', correct: true },
         ],
-      }, {
-        question: 'What internal project name was given to JavaScript during its initial development?',
+      },
+      {
+        question:
+          'What internal project name was given to JavaScript during its initial development?',
         answers: [
           { answer: 'Zeta', correct: false },
           { answer: 'Whisper', correct: false },
           { answer: 'Waterfall', correct: false },
           { answer: 'Mocha', correct: true },
         ],
-      }, {
-        question: 'How long was the initial release of JavaScript in development?',
+      },
+      {
+        question:
+          'How long was the initial release of JavaScript in development?',
         answers: [
           { answer: '78 Days', correct: false },
           { answer: '152 Days', correct: false },
           { answer: '8 Days', correct: false },
           { answer: '10 Days', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'Which data type does not exist in the JavaScript language?',
         answers: [
           { answer: 'String', correct: false },
@@ -359,15 +388,18 @@ function gamesGo() {
           { answer: 'Boolean', correct: false },
           { answer: 'Integer', correct: true },
         ],
-      }, {
-        question: 'Which programming language did not originally inspire the creation of JavaScript?',
+      },
+      {
+        question:
+          'Which programming language did not originally inspire the creation of JavaScript?',
         answers: [
           { answer: 'Java', correct: false },
           { answer: 'Scheme', correct: false },
           { answer: 'Self', correct: false },
           { answer: 'C++', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'What kind of inheritance does JavaScript use?',
         answers: [
           { answer: 'Single', correct: false },
@@ -375,15 +407,18 @@ function gamesGo() {
           { answer: 'Hierarchical', correct: false },
           { answer: 'Prototypical', correct: true },
         ],
-      }, {
-        question: 'Which company is responsible for the creation of JavaScript?',
+      },
+      {
+        question:
+          'Which company is responsible for the creation of JavaScript?',
         answers: [
           { answer: 'Apple', correct: false },
           { answer: 'IBM', correct: false },
           { answer: 'HP', correct: false },
           { answer: 'Netscape', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'Which company owns the trademark for JavaScript?',
         answers: [
           { answer: 'Microsoft', correct: false },
@@ -391,7 +426,8 @@ function gamesGo() {
           { answer: 'GE', correct: false },
           { answer: 'Oracle', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'How is JavaScript typed?',
         answers: [
           { answer: 'Strongly', correct: false },
@@ -399,15 +435,18 @@ function gamesGo() {
           { answer: 'Objectively', correct: false },
           { answer: 'Weakly', correct: true },
         ],
-      }, {
-        question: 'What is the outermost scope in JavaScript commonly referred to as?',
+      },
+      {
+        question:
+          'What is the outermost scope in JavaScript commonly referred to as?',
         answers: [
           { answer: 'Universal', correct: false },
           { answer: 'Local', correct: false },
           { answer: 'Base', correct: false },
           { answer: 'Global', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'What year was ECMAScript 6 released in?',
         answers: [
           { answer: '1999', correct: false },
@@ -415,23 +454,28 @@ function gamesGo() {
           { answer: '2019', correct: false },
           { answer: '2015', correct: true },
         ],
-      }, {
-        question: 'What is another name for a value that is considered to be true in JavaScript?',
+      },
+      {
+        question:
+          'What is another name for a value that is considered to be true in JavaScript?',
         answers: [
           { answer: 'Strongly', correct: false },
           { answer: 'Falsy', correct: false },
           { answer: 'Rigidly', correct: false },
           { answer: 'Truthy', correct: true },
         ],
-      }, {
-        question: 'Which of the following do modern browsers not provide as a means for interacting with users?',
+      },
+      {
+        question:
+          'Which of the following do modern browsers not provide as a means for interacting with users?',
         answers: [
           { answer: 'Alerts', correct: false },
           { answer: 'Prompts', correct: false },
           { answer: 'Confirmations', correct: false },
           { answer: 'Shutdowns', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'What type of operator does JavaScript not include?',
         answers: [
           { answer: 'Unary', correct: false },
@@ -439,7 +483,8 @@ function gamesGo() {
           { answer: 'Ternary', correct: false },
           { answer: 'Quaternary', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'What type of logical operator is not found in JavaScript?',
         answers: [
           { answer: 'AND', correct: false },
@@ -447,39 +492,46 @@ function gamesGo() {
           { answer: 'NOT', correct: false },
           { answer: 'EQV', correct: true },
         ],
-      }, {
-        question: 'What is a Developer doing when finding and fixing errors in their code?',
+      },
+      {
+        question:
+          'What is a Developer doing when finding and fixing errors in their code?',
         answers: [
           { answer: 'Buffering', correct: false },
           { answer: 'Classifying', correct: false },
           { answer: 'Instantiating', correct: false },
           { answer: 'Debugging', correct: true },
         ],
-      }, {
-        question: 'Was JavaScript originally intended to be used by the Client and/or Server?',
+      },
+      {
+        question:
+          'Was JavaScript originally intended to be used by the Client and/or Server?',
         answers: [
           { answer: 'Yes, Server Only', correct: false },
           { answer: 'Yes, Client Only', correct: false },
           { answer: 'No, Neither', correct: false },
           { answer: 'Yes, Both', correct: true },
         ],
-      }, {
-        question: 'What is the name of Mozilla\'s JavaScript engine?',
+      },
+      {
+        question: "What is the name of Mozilla's JavaScript engine?",
         answers: [
           { answer: 'Category9', correct: false },
           { answer: 'Hot Rod', correct: false },
           { answer: 'Greenhouse', correct: false },
           { answer: 'SpiderMonkey', correct: true },
         ],
-      }, {
-        question: 'What is the name of Google\'s JavaScript engine?',
+      },
+      {
+        question: "What is the name of Google's JavaScript engine?",
         answers: [
           { answer: 'Critical', correct: false },
           { answer: 'Develope', correct: false },
           { answer: 'Spirit Wagon', correct: false },
           { answer: 'V8', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'What label is given to a function that calls itself?',
         answers: [
           { answer: 'Restrictive', correct: false },
@@ -487,55 +539,67 @@ function gamesGo() {
           { answer: 'Responsive', correct: false },
           { answer: 'Recursive', correct: true },
         ],
-      }, {
-        question: 'What explicitly manages variable accessibility in JavaScript?',
+      },
+      {
+        question:
+          'What explicitly manages variable accessibility in JavaScript?',
         answers: [
           { answer: 'Inheritance', correct: false },
           { answer: 'Binding', correct: false },
           { answer: 'Conversion', correct: false },
           { answer: 'Scope', correct: true },
         ],
-      }, {
-        question: 'What name is commonly given to functions that are object properties in JavaScript?',
+      },
+      {
+        question:
+          'What name is commonly given to functions that are object properties in JavaScript?',
         answers: [
           { answer: 'Head', correct: false },
           { answer: 'Action', correct: false },
           { answer: 'System', correct: false },
           { answer: 'Method', correct: true },
         ],
-      }, {
-        question: 'What name is commonly given to a distinct piece of a JavaScript program?',
+      },
+      {
+        question:
+          'What name is commonly given to a distinct piece of a JavaScript program?',
         answers: [
           { answer: 'Segment', correct: false },
           { answer: 'Box', correct: false },
           { answer: 'Folder', correct: false },
           { answer: 'Module', correct: true },
         ],
-      }, {
-        question: 'Which programming model allows for multiple things to happen at the same time?',
+      },
+      {
+        question:
+          'Which programming model allows for multiple things to happen at the same time?',
         answers: [
           { answer: 'Coinciding', correct: false },
           { answer: 'Coexistent', correct: false },
           { answer: 'Synchronal', correct: false },
           { answer: 'Asynchronous', correct: true },
         ],
-      }, {
-        question: 'What name is commonly given to a function that is passed as an argument of another function?',
+      },
+      {
+        question:
+          'What name is commonly given to a function that is passed as an argument of another function?',
         answers: [
           { answer: 'Database', correct: false },
           { answer: 'Slide', correct: false },
           { answer: 'Pepper', correct: false },
           { answer: 'Callback', correct: true },
         ],
-      }, {
-        question: 'How can\'t JavaScript be associated with an HTML file?',
+      },
+      {
+        question: "How can't JavaScript be associated with an HTML file?",
         answers: [
           { answer: 'Inline', correct: false },
           { answer: 'Internal', correct: false },
           { answer: 'External', correct: false },
           { answer: 'Beside', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'What JavaScript type is Null?',
         answers: [
           { answer: 'String', correct: false },
@@ -543,7 +607,8 @@ function gamesGo() {
           { answer: 'Number', correct: false },
           { answer: 'Object', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'What JavaScript type is NaN?',
         answers: [
           { answer: 'String', correct: false },
@@ -551,7 +616,8 @@ function gamesGo() {
           { answer: 'Symbol', correct: false },
           { answer: 'Number', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'What kind of programming language is JavaScript?',
         answers: [
           { answer: 'Side-Level', correct: false },
@@ -559,7 +625,8 @@ function gamesGo() {
           { answer: 'Low-Level', correct: false },
           { answer: 'High-Level', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'What technology does JavaScript not have access to?',
         answers: [
           { answer: 'DOM', correct: false },
@@ -567,15 +634,18 @@ function gamesGo() {
           { answer: 'JSON', correct: false },
           { answer: 'SQL', correct: true },
         ],
-      }, {
-        question: 'What label is commonly given, in JavaScript, to an instruction to perform a specific action?',
+      },
+      {
+        question:
+          'What label is commonly given, in JavaScript, to an instruction to perform a specific action?',
         answers: [
           { answer: 'Equivalency', correct: false },
           { answer: 'Arrangement', correct: false },
           { answer: 'Expression', correct: false },
           { answer: 'Statement', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'What can JavaScript values be represented by and stored in?',
         answers: [
           { answer: 'Correspondences', correct: false },
@@ -583,15 +653,18 @@ function gamesGo() {
           { answer: 'Buildings', correct: false },
           { answer: 'Variables', correct: true },
         ],
-      }, {
-        question: 'What label is commonly given to the automatic or implicit conversion of JavaScrpt values from one type to another?',
+      },
+      {
+        question:
+          'What label is commonly given to the automatic or implicit conversion of JavaScrpt values from one type to another?',
         answers: [
           { answer: 'Computation', correct: false },
           { answer: 'Constriction', correct: false },
           { answer: 'Compulsion', correct: false },
           { answer: 'Coercion ', correct: true },
         ],
-      }, {
+      },
+      {
         question: 'What kind of characters are JavaScript strings composed of?',
         answers: [
           { answer: 'SimpleText', correct: false },
@@ -599,32 +672,40 @@ function gamesGo() {
           { answer: 'AFG', correct: false },
           { answer: 'Unicode', correct: true },
         ],
-      }, {
-        question: 'What label is commonly given to JavaScript code that performs an action on a value(s), thereby producing a result?',
+      },
+      {
+        question:
+          'What label is commonly given to JavaScript code that performs an action on a value(s), thereby producing a result?',
         answers: [
           { answer: 'Operative', correct: false },
           { answer: 'Orchestrator', correct: false },
           { answer: 'Operand', correct: false },
           { answer: 'Operator', correct: true },
         ],
-      }, {
-        question: 'What kind of JavaScript object represents the potential completion of an asychronous operation and the resulting value?',
+      },
+      {
+        question:
+          'What kind of JavaScript object represents the potential completion of an asychronous operation and the resulting value?',
         answers: [
           { answer: 'Excuse', correct: false },
           { answer: 'Wish', correct: false },
           { answer: 'Commitment', correct: false },
           { answer: 'Promise', correct: true },
         ],
-      }, {
-        question: 'What label is commonly given to the programming technique of repeatedly calling one or more JavaScript method(s) on an object, via a single line of code?',
+      },
+      {
+        question:
+          'What label is commonly given to the programming technique of repeatedly calling one or more JavaScript method(s) on an object, via a single line of code?',
         answers: [
           { answer: 'Multiplying', correct: false },
           { answer: 'Simulating', correct: false },
           { answer: 'Tokenizing', correct: false },
           { answer: 'Chaining', correct: true },
         ],
-      }, {
-        question: 'What kind of JavaScript function can return multiple values on demand?',
+      },
+      {
+        question:
+          'What kind of JavaScript function can return multiple values on demand?',
         answers: [
           { answer: 'Maker', correct: false },
           { answer: 'Formulator', correct: false },
@@ -709,7 +790,8 @@ function gamesGo() {
     // Details pop-up.
     const gameTwoDetails = document.createElement('div');
     gameTwoDetails.id = 'gameTwoDetails';
-    gameTwoDetails.textContent = 'Select an answer from the multiple options available, to any given question posed, and see if your choice is correct.';
+    gameTwoDetails.textContent =
+      'Select an answer from the multiple options available, to any given question posed, and see if your choice is correct.';
     // Paragraph element for the performance stats.
     const gameTwoStatsP = document.createElement('p');
     gameTwoStatsP.id = 'gameTwoStatsP';
@@ -726,13 +808,18 @@ function gamesGo() {
       const retrievedMasterParsed = JSON.parse(retrievedMaster);
       // Function for calculating the Correct Guess Rate.
       function correctGuessRate() {
-        const temp = (retrievedMasterParsed.gameTwo.totalCorrectGuesses / retrievedMasterParsed.gameTwo.totalGuesses) * 100;
+        const temp =
+          (retrievedMasterParsed.gameTwo.totalCorrectGuesses /
+            retrievedMasterParsed.gameTwo.totalGuesses) *
+          100;
         if (Number.isNaN(temp)) {
           return 0;
         }
         return temp;
       }
-      gameTwoStatsP.textContent = `Total Guesses: ${retrievedMasterParsed.gameTwo.totalGuesses} and Correct Guess Rate: ${correctGuessRate().toFixed(2)}%`;
+      gameTwoStatsP.textContent = `Total Guesses: ${
+        retrievedMasterParsed.gameTwo.totalGuesses
+      } and Correct Guess Rate: ${correctGuessRate().toFixed(2)}%`;
       // Event listener for closing the Details pop-up.
       gameTwoDetailsClose.addEventListener('click', () => {
         display.removeChild(gameTwoDetails);
@@ -751,250 +838,442 @@ function gamesGo() {
     const library = [
       {
         challenge: 'con____.log("Hello, World!");',
-        clues: ['cons___.log("Hello, World!");', 'con_o__.log("Hello, World!");', 'con__l_.log("Hello, World!");', 'con___e.log("Hello, World!");'],
+        clues: [
+          'cons___.log("Hello, World!");',
+          'con_o__.log("Hello, World!");',
+          'con__l_.log("Hello, World!");',
+          'con___e.log("Hello, World!");',
+        ],
         solutions: ['sole'],
         complete: 'console.log("Hello, World!");',
-      }, {
+      },
+      {
         challenge: 'console.___("Hello, World!");',
-        clues: ['console.l__("Hello, World!");', 'console._o_("Hello, World!");', 'console.__g("Hello, World!");'],
+        clues: [
+          'console.l__("Hello, World!");',
+          'console._o_("Hello, World!");',
+          'console.__g("Hello, World!");',
+        ],
         solutions: ['log'],
         complete: 'console.log("Hello, World!");',
-      }, {
+      },
+      {
         challenge: '() __ "Hello, World!";',
         clues: ['() =_ "Hello, World!";', '() _> "Hello, World!";'],
         solutions: ['=>'],
         complete: '() => "Hello, World";',
-      }, {
+      },
+      {
         challenge: 'body._____HTML = "";',
-        clues: ['body.i____HTML = "";', 'body._n___HTML = "";', 'body.__n__HTML = "";', 'body.___e_HTML = "";', 'body.____rHTML = "";'],
+        clues: [
+          'body.i____HTML = "";',
+          'body._n___HTML = "";',
+          'body.__n__HTML = "";',
+          'body.___e_HTML = "";',
+          'body.____rHTML = "";',
+        ],
         solutions: ['inner'],
         complete: 'body.innerHTML = "";',
-      }, {
+      },
+      {
         challenge: 'localStorage.get____("master");',
-        clues: ['localStorage.getI___("master");', 'localStorage.get_t__("master");', 'localStorage.get__e_("master");', 'localStorage.get___m("master");'],
+        clues: [
+          'localStorage.getI___("master");',
+          'localStorage.get_t__("master");',
+          'localStorage.get__e_("master");',
+          'localStorage.get___m("master");',
+        ],
         solutions: ['Item'],
         complete: 'localStorage.getItem("master");',
-      }, {
+      },
+      {
         challenge: '_____Storage.getItem("master");',
-        clues: ['l____Storage.getItem("master");', '_o___Storage.getItem("master");', '__c__Storage.getItem("master");', '___a_Storage.getItem("master");', '____lStorage.getItem("master");'],
+        clues: [
+          'l____Storage.getItem("master");',
+          '_o___Storage.getItem("master");',
+          '__c__Storage.getItem("master");',
+          '___a_Storage.getItem("master");',
+          '____lStorage.getItem("master");',
+        ],
         solutions: ['local'],
         complete: 'localStorage.getItem("master");',
-      }, {
+      },
+      {
         challenge: 'localStorage.set____("m", myObj);',
-        clues: ['localStorage.setI___("m", myObj);', 'localStorage.set_t__("m", myObj);', 'localStorage.set__e_("m", myObj);', 'localStorage.set___m("m", myObj);'],
+        clues: [
+          'localStorage.setI___("m", myObj);',
+          'localStorage.set_t__("m", myObj);',
+          'localStorage.set__e_("m", myObj);',
+          'localStorage.set___m("m", myObj);',
+        ],
         solutions: ['Item'],
         complete: 'localStorage.setItem("m", myObj);',
-      }, {
+      },
+      {
         challenge: 'elem.class____.add("myClass");',
-        clues: ['elem.classL___.add("myClass");', 'elem.class_i__.add("myClass");', 'elem.class__s_.add("myClass");', 'elem.class___t.add("myClass");'],
+        clues: [
+          'elem.classL___.add("myClass");',
+          'elem.class_i__.add("myClass");',
+          'elem.class__s_.add("myClass");',
+          'elem.class___t.add("myClass");',
+        ],
         solutions: ['List'],
         complete: 'elem.classList.add("myClass");',
-      }, {
+      },
+      {
         challenge: '________.createElement("div");',
-        clues: ['d_______.createElement("div");', '_o______.createElement("div");', '__c_____.createElement("div");', '___u____.createElement("div");', '____m___.createElement("div");', '_____e__.createElement("div");', '______n_.createElement("div");', '_______t.createElement("div");'],
+        clues: [
+          'd_______.createElement("div");',
+          '_o______.createElement("div");',
+          '__c_____.createElement("div");',
+          '___u____.createElement("div");',
+          '____m___.createElement("div");',
+          '_____e__.createElement("div");',
+          '______n_.createElement("div");',
+          '_______t.createElement("div");',
+        ],
         solutions: ['document'],
         complete: 'document.createElement("div");',
-      }, {
+      },
+      {
         challenge: '_____ num = 75;',
-        clues: ['c____ num = 75;', '_o___ num = 75;', '__n__ num = 75;', '___s_ num = 75;', '____t num = 75;'],
+        clues: [
+          'c____ num = 75;',
+          '_o___ num = 75;',
+          '__n__ num = 75;',
+          '___s_ num = 75;',
+          '____t num = 75;',
+        ],
         solutions: ['const'],
         complete: 'const num = 75;',
-      }, {
+      },
+      {
         challenge: 'isN__(variable);',
         clues: ['isNa_(variable);', 'isN_N(variable);'],
         solutions: ['aN'],
         complete: 'isNaN(variable)',
-      }, {
+      },
+      {
         challenge: '____.random();',
-        clues: ['M___.random();', '_a__.random();', '__t_.random();', '___h.random();'],
+        clues: [
+          'M___.random();',
+          '_a__.random();',
+          '__t_.random();',
+          '___h.random();',
+        ],
         solutions: ['Math'],
         complete: 'Math.random();',
-      }, {
+      },
+      {
         challenge: '[1,2,3,4].conc__([5,6,7,8]);',
         clues: ['[1,2,3,4].conca_([5,6,7,8]);', '[1,2,3,4].conc_t([5,6,7,8]);'],
         solutions: ['at'],
         complete: '[1,2,3,4].concat([5,6,7,8]);',
-      }, {
+      },
+      {
         challenge: '[1,2,3,4].____Within(2, 0);',
-        clues: ['[1,2,3,4].c___Within(2, 0);', '[1,2,3,4]._o__Within(2, 0);', '[1,2,3,4].__p_Within(2, 0);', '[1,2,3,4].___yWithin(2, 0);'],
+        clues: [
+          '[1,2,3,4].c___Within(2, 0);',
+          '[1,2,3,4]._o__Within(2, 0);',
+          '[1,2,3,4].__p_Within(2, 0);',
+          '[1,2,3,4].___yWithin(2, 0);',
+        ],
         solutions: ['copy'],
         complete: '[1,2,3,4].copyWithin(2, 0);',
-      }, {
+      },
+      {
         challenge: '[1,2,3,4].ever_(n => n !== 2);',
         clues: ['[1,2,3,4].every(n => n !== 2);'],
         solutions: ['y'],
         complete: '[1,2,3,4].every(n => n !== 2);',
-      }, {
+      },
+      {
         challenge: '[1,2,3,4].__ery(n => n !== 2);',
-        clues: ['[1,2,3,4].e_ery(n => n !== 2);', '[1,2,3,4]._very(n => n !== 2);'],
+        clues: [
+          '[1,2,3,4].e_ery(n => n !== 2);',
+          '[1,2,3,4]._very(n => n !== 2);',
+        ],
         solutions: ['ev'],
         complete: '[1,2,3,4].every(n => n !== 2);',
-      }, {
+      },
+      {
         challenge: '[1,2,3,4].fi____dex(n => n === 3);',
-        clues: ['[1,2,3,4].fin___dex(n => n === 3);', '[1,2,3,4].fi_d__dex(n => n === 3);', '[1,2,3,4].fi__I_dex(n => n === 3);', '[1,2,3,4].fi___ndex(n => n === 3);'],
+        clues: [
+          '[1,2,3,4].fin___dex(n => n === 3);',
+          '[1,2,3,4].fi_d__dex(n => n === 3);',
+          '[1,2,3,4].fi__I_dex(n => n === 3);',
+          '[1,2,3,4].fi___ndex(n => n === 3);',
+        ],
         solutions: ['ndIn'],
         complete: '[1,2,3,4].findIndex(n => n === 3);',
-      }, {
+      },
+      {
         challenge: '[1,2,3,4].___Each(n => n * 2);',
-        clues: ['[1,2,3,4].f__Each(n => n * 2);', '[1,2,3,4]._o_Each(n => n * 2);', '[1,2,3,4].__rEach(n => n * 2);'],
+        clues: [
+          '[1,2,3,4].f__Each(n => n * 2);',
+          '[1,2,3,4]._o_Each(n => n * 2);',
+          '[1,2,3,4].__rEach(n => n * 2);',
+        ],
         solutions: ['for'],
         complete: '[1,2,3,4].forEach(n => n * 2;',
-      }, {
+      },
+      {
         challenge: '[1,2,3,4].index__(2);',
         clues: ['[1,2,3,4].indexO_(2);', '[1,2,3,4].index_f(2);'],
         solutions: ['Of'],
         complete: '[1,2,3,4].indexOf(2);',
-      }, {
+      },
+      {
         challenge: 'Array.is___ay([1,2,3,4]);',
-        clues: ['Array.isA__ay([1,2,3,4]);', 'Array.is_r_ay([1,2,3,4]);', 'Array.is__ray([1,2,3,4]);'],
+        clues: [
+          'Array.isA__ay([1,2,3,4]);',
+          'Array.is_r_ay([1,2,3,4]);',
+          'Array.is__ray([1,2,3,4]);',
+        ],
         solutions: ['Arr'],
         complete: 'Array.isArray([1,2,3,4]);',
-      }, {
+      },
+      {
         challenge: '[1,2,3,4].____IndexOf(4);',
-        clues: ['[1,2,3,4].l___IndexOf(4);', '[1,2,3,4]._a__IndexOf(4);', '[1,2,3,4].__s_IndexOf();', '[1,2,3,4].___tIndexOf(4);'],
+        clues: [
+          '[1,2,3,4].l___IndexOf(4);',
+          '[1,2,3,4]._a__IndexOf(4);',
+          '[1,2,3,4].__s_IndexOf();',
+          '[1,2,3,4].___tIndexOf(4);',
+        ],
         solutions: ['last'],
         complete: '[1,2,3,4].lastIndexOf(4);',
-      }, {
+      },
+      {
         challenge: 'JSON.str____fy(myObj);',
-        clues: ['JSON.stri___fy(myObj);', 'JSON.str_n__fy(myObj);', 'JSON.str__g_fy(myObj);', 'JSON.str___ify(myObj);'],
+        clues: [
+          'JSON.stri___fy(myObj);',
+          'JSON.str_n__fy(myObj);',
+          'JSON.str__g_fy(myObj);',
+          'JSON.str___ify(myObj);',
+        ],
         solutions: ['ingi'],
         complete: 'JSON.stringify(myObj);',
-      }, {
+      },
+      {
         challenge: 'Math.a__(-43);',
         clues: ['Math.ab_(-43);', 'Math.a_s(-43);'],
         solutions: ['bs'],
         complete: 'Math.abs(-43);',
-      }, {
+      },
+      {
         challenge: 'Math.c___(23.55);',
         clues: ['Math.ce__(23.55);', 'Math.c_i_(23.55);', 'Math.c__l(23.55);'],
         solutions: ['eil'],
         complete: 'Math.ceil(23.55);',
-      }, {
+      },
+      {
         challenge: 'Math.__p(50);',
         clues: ['Math.e_p(50);', 'Math._xp(50);'],
         solutions: ['ex'],
         complete: 'Math.exp(50);',
-      }, {
+      },
+      {
         challenge: 'Math.f____(23.55);',
-        clues: ['Math.fl___(23.55);', 'Math.f_o__(23.55);', 'Math.f__o_(23.55);', 'Math.f___r(23.55);'],
+        clues: [
+          'Math.fl___(23.55);',
+          'Math.f_o__(23.55);',
+          'Math.f__o_(23.55);',
+          'Math.f___r(23.55);',
+        ],
         solutions: ['loor'],
         complete: 'Math.floor(23.55);',
-      }, {
+      },
+      {
         challenge: 'Math.r____(23.55);',
-        clues: ['Math.ro___(23.55);', 'Math.r_u__(23.55);', 'Math.r__n_(23.55);', 'Math.r___d(23.55);'],
+        clues: [
+          'Math.ro___(23.55);',
+          'Math.r_u__(23.55);',
+          'Math.r__n_(23.55);',
+          'Math.r___d(23.55);',
+        ],
         solutions: ['ound'],
         complete: 'Math.round(23.55);',
-      }, {
+      },
+      {
         challenge: '"Hello, World!".____At(2);',
-        clues: ['"Hello, World!".c___At(2);', '"Hello, World!"._h__At(2);', '"Hello, World!".__a_At(2);', '"Hello, World!".___rAt(2);'],
+        clues: [
+          '"Hello, World!".c___At(2);',
+          '"Hello, World!"._h__At(2);',
+          '"Hello, World!".__a_At(2);',
+          '"Hello, World!".___rAt(2);',
+        ],
         solutions: ['char'],
         complete: '"Hello, World!".charAt(2);',
-      }, {
+      },
+      {
         challenge: '"Hello, World!".char_____t(2);',
-        clues: ['"Hello, World!".charC____t(2);', '"Hello, World!".char_o___t(2);', '"Hello, World!".char__d__t(2);', '"Hello, World!".char___e_t(2);', '"Hello, World!".char____At(2);'],
+        clues: [
+          '"Hello, World!".charC____t(2);',
+          '"Hello, World!".char_o___t(2);',
+          '"Hello, World!".char__d__t(2);',
+          '"Hello, World!".char___e_t(2);',
+          '"Hello, World!".char____At(2);',
+        ],
         solutions: ['CodeA'],
         complete: '"Hello, World!".charCodeAt(2);',
-      }, {
+      },
+      {
         challenge: '"Hello, World!".___cat(myStr);',
-        clues: ['"Hello, World!".c__cat(myStr);', '"Hello, World!"._o_cat(myStr);', '"Hello, World!".__ncat(myStr);'],
+        clues: [
+          '"Hello, World!".c__cat(myStr);',
+          '"Hello, World!"._o_cat(myStr);',
+          '"Hello, World!".__ncat(myStr);',
+        ],
         solutions: ['con'],
         complete: '"Hello, World!".concat(myStr);',
-      }, {
+      },
+      {
         challenge: '"Hello, World!".r__eat(3);',
         clues: ['"Hello, World!".re_eat(3);', '"Hello, World!".r_peat(3);'],
         solutions: ['ep'],
         complete: '"Hello, World!".repeat(3);',
-      }, {
+      },
+      {
         challenge: '"Hello, World!".toL____Case();',
-        clues: ['"Hello, World!".toLo___Case();', '"Hello, World!".toL_w__Case();', '"Hello, World!".toL__e_Case();', '"Hello, World!".toL___rCase();'],
+        clues: [
+          '"Hello, World!".toLo___Case();',
+          '"Hello, World!".toL_w__Case();',
+          '"Hello, World!".toL__e_Case();',
+          '"Hello, World!".toL___rCase();',
+        ],
         solutions: ['ower'],
         complete: '"Hello, World!".toLowerCase();',
-      }, {
+      },
+      {
         challenge: 'myNum.toSt____();',
-        clues: ['myNum.toStr___();', 'myNum.toSt_i__();', 'myNum.toSt__n_();', 'myNum.toSt___g();'],
+        clues: [
+          'myNum.toStr___();',
+          'myNum.toSt_i__();',
+          'myNum.toSt__n_();',
+          'myNum.toSt___g();',
+        ],
         solutions: ['ring'],
         complete: 'myNum.toString();',
-      }, {
+      },
+      {
         challenge: 'myNum.t_____nential();',
-        clues: ['myNum.to____nential();', 'myNum.t_E___nential();', 'myNum.t__x__nential();', 'myNum.t___p_nential();', 'myNum.t____onential();'],
+        clues: [
+          'myNum.to____nential();',
+          'myNum.t_E___nential();',
+          'myNum.t__x__nential();',
+          'myNum.t___p_nential();',
+          'myNum.t____onential();',
+        ],
         solutions: ['oExpo'],
         complete: 'myNum.toExponential();',
-      }, {
+      },
+      {
         challenge: 'myNum.toF____(3);',
-        clues: ['myNum.toFi___(3);', 'myNum.toF_x__(3);', 'myNum.toF__e_(3);', 'myNum.toF___d(3);'],
+        clues: [
+          'myNum.toFi___(3);',
+          'myNum.toF_x__(3);',
+          'myNum.toF__e_(3);',
+          'myNum.toF___d(3);',
+        ],
         solutions: ['ixed'],
         complete: 'myNum.toFixed(3);',
-      }, {
+      },
+      {
         challenge: 'myNum._____cision(5);',
-        clues: ['myNum.t____cision(5);', 'myNum._o___cision(5);', 'myNum.__P__cision(5);', 'myNum.___r_cision(5);', 'myNum.____ecision(5);'],
+        clues: [
+          'myNum.t____cision(5);',
+          'myNum._o___cision(5);',
+          'myNum.__P__cision(5);',
+          'myNum.___r_cision(5);',
+          'myNum.____ecision(5);',
+        ],
         solutions: ['toPre'],
         complete: 'myNum.toPrecision(5);',
-      }, {
+      },
+      {
         challenge: 'myNum.value__();',
         clues: ['myNum.valueO_();', 'myNum.value_f();'],
         solutions: ['Of'],
         complete: 'myNum.valueOf();',
-      }, {
+      },
+      {
         challenge: 'l__ num = 40;',
         clues: ['le_ num = 40;', 'l_t num = 40;'],
         solutions: ['et'],
         complete: 'let num = 40;',
-      }, {
+      },
+      {
         challenge: 'v_r num = 40;',
         clues: ['var num = 40;'],
         solutions: ['a'],
         complete: 'var num = 40;',
-      }, {
+      },
+      {
         challenge: '50 >_ 25;',
         clues: ['50 >= 25;'],
         solutions: ['='],
         complete: '50 >= 25;',
-      }, {
+      },
+      {
         challenge: '25 <_ 50;',
         clues: ['25 <= 50;'],
         solutions: ['='],
         complete: '25 <= 50;',
-      }, {
+      },
+      {
         challenge: '50 ==_ 50;',
         clues: ['50 === 50;'],
         solutions: ['='],
         complete: '50 === 50;',
-      }, {
+      },
+      {
         challenge: '75 !=_ 50;',
         clues: ['75 !== 50;'],
         solutions: ['='],
         complete: '75 !== 50;',
-      }, {
+      },
+      {
         challenge: 'ty___f 50;',
         clues: ['typ__f 50;', 'ty_e_f 50;', 'ty__of 50;'],
         solutions: ['peo'],
         complete: 'typeof 50;',
-      }, {
+      },
+      {
         challenge: 'myNum *_ 50;',
         clues: ['myNum *= 50;'],
         solutions: ['='],
         complete: 'myNum *= 50;',
-      }, {
+      },
+      {
         challenge: 'myNum = a |_ 50;',
         clues: ['myNum = a || 50;'],
         solutions: ['|'],
         complete: 'myNum = a || 50;',
-      }, {
+      },
+      {
         challenge: 'myNum-_;',
         clues: ['myNum--;'],
         solutions: ['-'],
         complete: 'myNum--;',
-      }, {
+      },
+      {
         challenge: 'myNum+_;',
         clues: ['myNum++;'],
         solutions: ['+'],
         complete: 'myNum++;',
-      }, {
+      },
+      {
         challenge: 'typeof myNum === "und___ned";',
-        clues: ['typeof myNum === "unde__ned";', 'typeof myNum === "und_f_ned";', 'typeof myNum === "und__ined";'],
+        clues: [
+          'typeof myNum === "unde__ned";',
+          'typeof myNum === "und_f_ned";',
+          'typeof myNum === "und__ined";',
+        ],
         solutions: ['efi'],
         complete: 'typeof myNum === "undefined";',
-      }, {
+      },
+      {
         challenge: 'typeof n__l";',
         clues: ['typeof nu_l";', 'typeof n_ll";'],
         solutions: ['ul'],
@@ -1040,13 +1319,20 @@ function gamesGo() {
     const incorrectGuessesArray = [];
     function determineCorrect() {
       const preData = gameThreeSolutionInput.value;
-      const data = preData.split('').reduce((total, d) => {
-        if (d !== ' ') {
-          total.push(d);
-        }
-        return total;
-      }, []).join('');
-      if (correctAnswers < 1 && data.length > 0 && incorrectGuessesArray.every((g) => g !== data)) {
+      const data = preData
+        .split('')
+        .reduce((total, d) => {
+          if (d !== ' ') {
+            total.push(d);
+          }
+          return total;
+        }, [])
+        .join('');
+      if (
+        correctAnswers < 1 &&
+        data.length > 0 &&
+        incorrectGuessesArray.every((g) => g !== data)
+      ) {
         totalGuesses += 1;
         const retrievedMaster = localStorage.getItem('master');
         const retrievedMasterParsed = JSON.parse(retrievedMaster);
@@ -1063,7 +1349,9 @@ function gamesGo() {
         } else {
           gameThreeSolutionInput.value = '';
           incorrectGuessesArray.push(data);
-          gameThreeIncorrectGuesses.innerText = `Incorrect Guesses: ${incorrectGuessesArray.join(', ')}`;
+          gameThreeIncorrectGuesses.innerText = `Incorrect Guesses: ${incorrectGuessesArray.join(
+            ', '
+          )}`;
           gameThreeTotalGuesses.innerText = `Total Guesses: ${totalGuesses}`;
         }
       }
@@ -1141,7 +1429,8 @@ function gamesGo() {
     // Details pop-up.
     const gameThreeDetails = document.createElement('div');
     gameThreeDetails.id = 'gameThreeDetails';
-    gameThreeDetails.textContent = 'Enter a case-sensitive solution for the missing JavaScript code represented by underscores. Or click and hold Clue for a hint. Then press Submit to see if you\'re correct.';
+    gameThreeDetails.textContent =
+      "Enter a case-sensitive solution for the missing JavaScript code represented by underscores. Or click and hold Clue for a hint. Then press Submit to see if you're correct.";
     // Paragraph element for the performance stats.
     const gameThreeStatsP = document.createElement('p');
     gameThreeStatsP.id = 'gameThreeStatsP';
@@ -1158,13 +1447,20 @@ function gamesGo() {
       const retrievedMasterParsed = JSON.parse(retrievedMaster);
       // Function for calculating the Correct Guess Rate.
       function correctGuessRate() {
-        const temp = (retrievedMasterParsed.gameThree.totalCorrectGuesses / retrievedMasterParsed.gameThree.totalGuesses) * 100;
+        const temp =
+          (retrievedMasterParsed.gameThree.totalCorrectGuesses /
+            retrievedMasterParsed.gameThree.totalGuesses) *
+          100;
         if (Number.isNaN(temp)) {
           return 0;
         }
         return temp;
       }
-      gameThreeStatsP.textContent = `Total Guesses: ${retrievedMasterParsed.gameThree.totalGuesses}, Total Clues Given: ${retrievedMasterParsed.gameThree.clueClicks} and Correct Guess Rate: ${correctGuessRate().toFixed(2)}%`;
+      gameThreeStatsP.textContent = `Total Guesses: ${
+        retrievedMasterParsed.gameThree.totalGuesses
+      }, Total Clues Given: ${
+        retrievedMasterParsed.gameThree.clueClicks
+      } and Correct Guess Rate: ${correctGuessRate().toFixed(2)}%`;
       // Event listener for closing the Details pop-up.
       gameThreeDetailsClose.addEventListener('click', () => {
         display.removeChild(gameThreeDetails);
@@ -1199,133 +1495,197 @@ function gamesGo() {
     const preLibrary = [
       {
         display: '++',
-      }, {
+      },
+      {
         display: '<=',
-      }, {
+      },
+      {
         display: '--',
-      }, {
+      },
+      {
         display: '>=',
-      }, {
+      },
+      {
         display: '===',
-      }, {
+      },
+      {
         display: '!=',
-      }, {
+      },
+      {
         display: '!==',
-      }, {
+      },
+      {
         display: '==',
-      }, {
+      },
+      {
         display: '*=',
-      }, {
+      },
+      {
         display: '+=',
-      }, {
+      },
+      {
         display: '-=',
-      }, {
+      },
+      {
         display: '+',
-      }, {
+      },
+      {
         display: '-',
-      }, {
+      },
+      {
         display: '*',
-      }, {
+      },
+      {
         display: '/',
-      }, {
+      },
+      {
         display: '%',
-      }, {
+      },
+      {
         display: '||',
-      }, {
+      },
+      {
         display: '&&',
-      }, {
+      },
+      {
         display: '/=',
-      }, {
+      },
+      {
         display: 'null',
-      }, {
+      },
+      {
         display: 'var',
-      }, {
+      },
+      {
         display: 'let',
-      }, {
+      },
+      {
         display: 'const',
-      }, {
+      },
+      {
         display: '%=',
-      }, {
+      },
+      {
         display: 'NaN',
-      }, {
+      },
+      {
         display: 'isNaN()',
-      }, {
+      },
+      {
         display: 'false',
-      }, {
+      },
+      {
         display: 'true',
-      }, {
+      },
+      {
         display: 'typeof',
-      }, {
+      },
+      {
         display: 'new',
-      }, {
+      },
+      {
         display: 'Date()',
-      }, {
+      },
+      {
         display: ';',
-      }, {
+      },
+      {
         display: 'delete',
-      }, {
+      },
+      {
         display: 'if',
-      }, {
+      },
+      {
         display: 'else',
-      }, {
+      },
+      {
         display: 'else if',
-      }, {
+      },
+      {
         display: 'return',
-      }, {
+      },
+      {
         display: 'switch',
-      }, {
+      },
+      {
         display: 'break',
-      }, {
+      },
+      {
         display: 'continue',
-      }, {
+      },
+      {
         display: 'throw',
-      }, {
+      },
+      {
         display: '//',
-      }, {
+      },
+      {
         display: 'while',
-      }, {
+      },
+      {
         display: 'do',
-      }, {
+      },
+      {
         display: 'for',
-      }, {
+      },
+      {
         display: 'length',
-      }, {
+      },
+      {
         display: 'prototype',
-      }, {
+      },
+      {
         display: 'undefined',
-      }, {
+      },
+      {
         display: 'function',
-      }, {
+      },
+      {
         display: '=>',
-      }, {
+      },
+      {
         display: '=',
-      }, {
+      },
+      {
         display: '[ ]',
-      }, {
+      },
+      {
         display: '( )',
-      }, {
+      },
+      {
         display: '{ }',
-      }, {
+      },
+      {
         display: 'Map()',
-      }, {
+      },
+      {
         display: 'Set()',
-      }, {
+      },
+      {
         display: 'Promise()',
-      }, {
+      },
+      {
         display: '...',
-      }, {
+      },
+      {
         display: 'get',
-      }, {
+      },
+      {
         display: 'set',
-      }, {
+      },
+      {
         display: '" "',
-      }, {
-        display: '\' \'',
-      }, {
+      },
+      {
+        display: "' '",
+      },
+      {
         display: '?',
-      }, {
+      },
+      {
         display: ':',
-      }, {
+      },
+      {
         display: '` `',
       },
     ];
@@ -1404,7 +1764,13 @@ function gamesGo() {
             tempSquareP.style.display = 'block';
             return;
           }
-          if (activeSquares.length === 1 && activeSquares[0].display !== tempSquare.children[0].innerText && activeSquares[0].child !== i && (!activated[i] && !activated[activeSquares[0].child])) {
+          if (
+            activeSquares.length === 1 &&
+            activeSquares[0].display !== tempSquare.children[0].innerText &&
+            activeSquares[0].child !== i &&
+            !activated[i] &&
+            !activated[activeSquares[0].child]
+          ) {
             tempSquareP.style.display = 'block';
             activeSquares.push({
               display: tempSquareP.innerText,
@@ -1418,7 +1784,13 @@ function gamesGo() {
             }, 500);
             return;
           }
-          if (activeSquares.length === 1 && activeSquares[0].display === tempSquare.children[0].innerText && activeSquares[0].child !== i && (!activated[i] && !activated[activeSquares[0].child])) {
+          if (
+            activeSquares.length === 1 &&
+            activeSquares[0].display === tempSquare.children[0].innerText &&
+            activeSquares[0].child !== i &&
+            !activated[i] &&
+            !activated[activeSquares[0].child]
+          ) {
             activeSquares.push({
               display: tempSquareP.innerText,
               child: i,
@@ -1426,24 +1798,59 @@ function gamesGo() {
             });
             this.style.backgroundColor = 'lightgray';
             activeSquares[1].elem.style.display = 'block';
-            squareHolder.children[activeSquares[0].child].style.backgroundColor = 'lightgray';
-            activeSquares[0].elem.parentNode.removeEventListener('click', matched);
-            activeSquares[1].elem.parentNode.removeEventListener('click', matched);
-            activeSquares[0].elem.parentNode.removeEventListener('mouseover', hoveringOver);
-            activeSquares[1].elem.parentNode.removeEventListener('mouseover', hoveringOver);
-            activeSquares[0].elem.parentNode.removeEventListener('mouseout', hoveringOut);
-            activeSquares[1].elem.parentNode.removeEventListener('mouseout', hoveringOut);
-            activeSquares[0].elem.parentNode.addEventListener('mouseover', hOActivated);
-            activeSquares[1].elem.parentNode.addEventListener('mouseover', hOActivated);
-            activeSquares[0].elem.parentNode.addEventListener('mouseout', hOActivated);
-            activeSquares[1].elem.parentNode.addEventListener('mouseout', hOActivated);
+            squareHolder.children[
+              activeSquares[0].child
+            ].style.backgroundColor = 'lightgray';
+            activeSquares[0].elem.parentNode.removeEventListener(
+              'click',
+              matched
+            );
+            activeSquares[1].elem.parentNode.removeEventListener(
+              'click',
+              matched
+            );
+            activeSquares[0].elem.parentNode.removeEventListener(
+              'mouseover',
+              hoveringOver
+            );
+            activeSquares[1].elem.parentNode.removeEventListener(
+              'mouseover',
+              hoveringOver
+            );
+            activeSquares[0].elem.parentNode.removeEventListener(
+              'mouseout',
+              hoveringOut
+            );
+            activeSquares[1].elem.parentNode.removeEventListener(
+              'mouseout',
+              hoveringOut
+            );
+            activeSquares[0].elem.parentNode.addEventListener(
+              'mouseover',
+              hOActivated
+            );
+            activeSquares[1].elem.parentNode.addEventListener(
+              'mouseover',
+              hOActivated
+            );
+            activeSquares[0].elem.parentNode.addEventListener(
+              'mouseout',
+              hOActivated
+            );
+            activeSquares[1].elem.parentNode.addEventListener(
+              'mouseout',
+              hOActivated
+            );
             activated[i] = 1;
             activated[activeSquares[0].child] = 1;
             activeSquares = [];
             if (activated.every((a) => a === 1)) {
               retrievedMasterParsed.gameFour.totalWins += 1;
               retrievedMasterParsed.gameFour.totalGuesses += gameFourGuesses;
-              localStorage.setItem('master', JSON.stringify(retrievedMasterParsed));
+              localStorage.setItem(
+                'master',
+                JSON.stringify(retrievedMasterParsed)
+              );
               squareHolder.style.border = '1px solid lime';
               gameFourNextButton.style.border = '1px solid lime';
               for (const ch in squareHolder.children) {
@@ -1465,7 +1872,8 @@ function gamesGo() {
     // Details pop-up.
     const gameFourDetails = document.createElement('div');
     gameFourDetails.id = 'gameFourDetails';
-    gameFourDetails.textContent = 'Click on different game squares, thereby revealing JavaScript code, until they are all matched as pairs of the initially hidden content.';
+    gameFourDetails.textContent =
+      'Click on different game squares, thereby revealing JavaScript code, until they are all matched as pairs of the initially hidden content.';
     // Paragraph element for the performance stats.
     const gameFourStatsP = document.createElement('p');
     gameFourStatsP.id = 'gameFourStatsP';
@@ -1482,13 +1890,17 @@ function gamesGo() {
       const retrievedMasterParsed = JSON.parse(retrievedMaster);
       // Function for calculating the Average Guesses Per Game.
       function guessesPerGame() {
-        const temp = retrievedMasterParsed.gameFour.totalGuesses / retrievedMasterParsed.gameFour.totalWins;
+        const temp =
+          retrievedMasterParsed.gameFour.totalGuesses /
+          retrievedMasterParsed.gameFour.totalWins;
         if (Number.isNaN(temp)) {
           return 0;
         }
         return temp;
       }
-      gameFourStatsP.textContent = `Total Wins: ${retrievedMasterParsed.gameFour.totalWins} and Average Guesses Per Game: ${guessesPerGame().toFixed(2)}`;
+      gameFourStatsP.textContent = `Total Wins: ${
+        retrievedMasterParsed.gameFour.totalWins
+      } and Average Guesses Per Game: ${guessesPerGame().toFixed(2)}`;
       // Event listener for closing the Details pop-up.
       gameFourDetailsClose.addEventListener('click', () => {
         display.removeChild(gameFourDetails);
@@ -1555,87 +1967,154 @@ function gamesGo() {
     });
     primaryInterface.appendChild(gameFiveNextButton);
     // Library of code to re-arrange.
-    const aLibrary = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    const aLibrary = [
+      'a',
+      'b',
+      'c',
+      'd',
+      'e',
+      'f',
+      'g',
+      'h',
+      'i',
+      'j',
+      'k',
+      'l',
+      'm',
+      'n',
+      'o',
+      'p',
+      'q',
+      'r',
+      's',
+      't',
+      'u',
+      'v',
+      'w',
+      'x',
+      'y',
+      'z',
+    ];
     const letter = aLibrary[Math.floor(Math.random() * aLibrary.length)];
     const library = [
       {
-        code: `${Math.floor(Math.random() * 50) + 50} >= ${Math.floor(Math.random() * 25)} ;`,
-      }, {
-        code: `${Math.floor(Math.random() * 25)} <= ${Math.floor(Math.random() * 50) + 50} ;`,
-      }, {
+        code: `${Math.floor(Math.random() * 50) + 50} >= ${Math.floor(
+          Math.random() * 25
+        )} ;`,
+      },
+      {
+        code: `${Math.floor(Math.random() * 25)} <= ${
+          Math.floor(Math.random() * 50) + 50
+        } ;`,
+      },
+      {
         code: `const myNum = ${Math.floor(Math.random() * 50)} ;`,
-      }, {
-        code: `${Math.floor(Math.random() * 25)} < ${Math.floor(Math.random() * 100) + 100} ;`,
-      }, {
-        code: `${Math.floor(Math.random() * 100) + 100} > ${Math.floor(Math.random() * 25)} ;`,
-      }, {
+      },
+      {
+        code: `${Math.floor(Math.random() * 25)} < ${
+          Math.floor(Math.random() * 100) + 100
+        } ;`,
+      },
+      {
+        code: `${Math.floor(Math.random() * 100) + 100} > ${Math.floor(
+          Math.random() * 25
+        )} ;`,
+      },
+      {
         code: `let myNum = ${Math.floor(Math.random() * 100) + 100} ;`,
-      }, {
+      },
+      {
         code: `var myNum = ${Math.floor(Math.random() * 100) + 100} ;`,
-      }, {
+      },
+      {
         code: `let ${letter} = () => '${Math.floor(Math.random() * 1000)}' ;`,
-      }, {
+      },
+      {
         code: `let ${letter} = () => ${letter}++ ;`,
-      }, {
+      },
+      {
         code: `let num = !${letter} || ${Math.floor(Math.random() * 100)} ;`,
-      }, {
+      },
+      {
         code: `if ( ${letter} ) { ${letter}++ ; }`,
-      }, {
+      },
+      {
         code: `else if ( ${letter} ) { ${letter}++; }`,
-      }, {
+      },
+      {
         code: `else { ${letter}-- ; }`,
-      }, {
+      },
+      {
         code: `while ( !${letter} ) { ${letter}++ ; }`,
-      }, {
+      },
+      {
         code: `myFunction ( ...${letter} ) ;`,
-      }, {
+      },
+      {
         code: `let my${letter.toUpperCase()} = ${letter} => ${letter}++ ;`,
-      }, {
+      },
+      {
         code: `isNaN ( ${letter} ) ;`,
-      }, {
+      },
+      {
         code: `isFinite ( ${letter} ) ;`,
-      }, {
+      },
+      {
         code: `let ${letter} = [ ${Math.floor(Math.random() * 25)} ] ;`,
-      }, {
+      },
+      {
         code: `let ${letter} = { } ;`,
-      }, {
+      },
+      {
         code: `const ${letter} = [ ${Math.floor(Math.random() * 25)} ] ;`,
-      }, {
+      },
+      {
         code: `const ${letter} = { } ;`,
-      }, {
+      },
+      {
         code: `var ${letter} = [ ${Math.floor(Math.random() * 25)} ] ;`,
-      }, {
+      },
+      {
         code: `var ${letter} = { } ;`,
-      }, {
+      },
+      {
         code: `typeof '${letter}' ;`,
-      }, {
+      },
+      {
         code: `typeof \`${letter}\` ;`,
-      }, {
+      },
+      {
         code: `typeof ${Math.floor(Math.random() * 25)} ;`,
-      }, {
+      },
+      {
         code: `typeof [ "${letter}" ] ;`,
-      }, {
+      },
+      {
         code: `typeof [ ${Math.floor(Math.random() * 25)} ] ;`,
-      }, {
+      },
+      {
         code: 'typeof { } ;',
-      }, {
+      },
+      {
         code: 'typeof myVar ;',
-      }, {
+      },
+      {
         code: 'typeof null ;',
-      }, {
+      },
+      {
         code: `typeof "${letter}" ;`,
       },
     ];
     // Choosing and formatting a random object from the Library array.
-    const codeChoice = library[Math.floor(Math.random() * library.length)].code.split(' ').reduce((total, p, ind) => {
-      total.push(
-        {
+    const codeChoice = library[Math.floor(Math.random() * library.length)].code
+      .split(' ')
+      .reduce((total, p, ind) => {
+        total.push({
           item: p,
           position: ind,
-        },
-      );
-      return total;
-    }, []);
+        });
+        return total;
+      }, []);
     // Scramble the code.
     let scrambledCode = codeChoice.sort(randomize);
     while (scrambledCode.some((s, ind) => s.position === ind)) {
@@ -1657,10 +2136,12 @@ function gamesGo() {
         const currentObj = e.target.getBoundingClientRect();
         const x = e.offsetX;
         const refNode = document.querySelector(`#${e.target.id}`);
-        if (x <= (currentObj.width / 2)) {
-          refNode.style.background = 'linear-gradient(to right, rgba(255,215,0,0.67), white, white, white)';
+        if (x <= currentObj.width / 2) {
+          refNode.style.background =
+            'linear-gradient(to right, rgba(255,215,0,0.67), white, white, white)';
         } else {
-          refNode.style.background = 'linear-gradient(to left, rgba(255,215,0,0.67), white, white, white)';
+          refNode.style.background =
+            'linear-gradient(to left, rgba(255,215,0,0.67), white, white, white)';
         }
       }
     }
@@ -1681,7 +2162,7 @@ function gamesGo() {
         const x = e.offsetX;
         const newNode = document.querySelector(`#${id}`);
         const refNode = document.querySelector(`#${e.target.id}`);
-        if (x <= (currentObj.width / 2)) {
+        if (x <= currentObj.width / 2) {
           gameFiveReDIV.insertBefore(newNode, refNode);
         } else {
           gameFiveReDIV.insertBefore(newNode, refNode.nextSibling);
@@ -1690,7 +2171,9 @@ function gamesGo() {
         gameFiveMovesP.innerText = `Total Moves: ${movesMade}`;
         const retrievedMaster = localStorage.getItem('master');
         const retrievedMasterParsed = JSON.parse(retrievedMaster);
-        gameFiveDiffP.innerText = `Percentage Of Average: ${calcDiff(guessesPerGame(retrievedMasterParsed)).toFixed(2)}%`;
+        gameFiveDiffP.innerText = `Percentage Of Average: ${calcDiff(
+          guessesPerGame(retrievedMasterParsed)
+        ).toFixed(2)}%`;
         const chs = gameFiveReDIV.children;
         let complete = 1;
         for (let q = 0; q < codeChoice.length; q += 1) {
@@ -1756,7 +2239,8 @@ function gamesGo() {
     // Details pop-up.
     const gameFiveDetails = document.createElement('div');
     gameFiveDetails.id = 'gameFiveDetails';
-    gameFiveDetails.textContent = 'Rearrange the scrambled JavaScript code by dragging and dropping each box until a meaningful statement is produced.';
+    gameFiveDetails.textContent =
+      'Rearrange the scrambled JavaScript code by dragging and dropping each box until a meaningful statement is produced.';
     // Paragraph element for the performance stats.
     const gameFiveStatsP = document.createElement('p');
     gameFiveStatsP.id = 'gameFiveStatsP';
@@ -1773,7 +2257,11 @@ function gamesGo() {
       const retrievedMaster = localStorage.getItem('master');
       const retrievedMasterParsed = JSON.parse(retrievedMaster);
       // Displaying current stats.
-      gameFiveStatsP.textContent = `Total Wins: ${retrievedMasterParsed.gameFive.totalWins} and Average Moves Per Game: ${guessesPerGame(retrievedMasterParsed).toFixed(2)}`;
+      gameFiveStatsP.textContent = `Total Wins: ${
+        retrievedMasterParsed.gameFive.totalWins
+      } and Average Moves Per Game: ${guessesPerGame(
+        retrievedMasterParsed
+      ).toFixed(2)}`;
       // Event listener for closing the Details pop-up.
       gameFiveDetailsClose.addEventListener('click', () => {
         display.removeChild(gameFiveDetails);
@@ -1880,10 +2368,16 @@ function gamesGo() {
       temp.style.top = `${rN()}%`;
       playField.appendChild(temp);
       // Correcting any circle which was initially positioned outside of the play field.
-      while (temp.offsetLeft + 50 > playField.offsetWidth - 5 || temp.offsetLeft < 5) {
+      while (
+        temp.offsetLeft + 50 > playField.offsetWidth - 5 ||
+        temp.offsetLeft < 5
+      ) {
         temp.style.left = `${rN()}%`;
       }
-      while (temp.offsetTop + 50 > playField.offsetHeight - 5 || temp.offsetTop < 5) {
+      while (
+        temp.offsetTop + 50 > playField.offsetHeight - 5 ||
+        temp.offsetTop < 5
+      ) {
         temp.style.top = `${rN()}%`;
       }
       // Choosing a random fact text and generating the relevant paragraph element.
@@ -1928,7 +2422,7 @@ function gamesGo() {
             const x = this.offsetLeft - e.clientX;
             const y = this.offsetTop - e.clientY;
             positioningExtra = [x, y];
-            this.style.zIndex = `${zInd += 1000}`;
+            this.style.zIndex = `${(zInd += 1000)}`;
             this.style.backgroundColor = 'rgba(255,223,0,0.67)';
           }
         }
@@ -1939,18 +2433,28 @@ function gamesGo() {
           // Making sure the background remains gold while the mouse is hovering over it.
           if (isActive && mouseIsHovering) {
             const playFieldObj = playField.getBoundingClientRect();
-            if (temp.offsetLeft + 50 < playFieldObj.width && temp.offsetLeft > 0) {
+            if (
+              temp.offsetLeft + 50 < playFieldObj.width &&
+              temp.offsetLeft > 0
+            ) {
               temp.style.backgroundColor = 'rgba(255,223,0,0.67)';
             }
-            if (temp.offsetTop + 50 < playFieldObj.height && temp.offsetTop > 0) {
+            if (
+              temp.offsetTop + 50 < playFieldObj.height &&
+              temp.offsetTop > 0
+            ) {
               temp.style.backgroundColor = 'rgba(255,223,0,0.67)';
             }
           }
           // Conditions for a loss are when a circle is dragged to any of the play field's edges.
           if (mouseIsDown && isActive) {
             const playFieldObj = playField.getBoundingClientRect();
-            if (temp.offsetLeft + 50 < playFieldObj.width && temp.offsetLeft > 0) {
-              const translation = (e.clientX + positioningExtra[0]) / playFieldObj.width;
+            if (
+              temp.offsetLeft + 50 < playFieldObj.width &&
+              temp.offsetLeft > 0
+            ) {
+              const translation =
+                (e.clientX + positioningExtra[0]) / playFieldObj.width;
               temp.style.left = `${translation * 100}%`;
               temp.style.cursor = 'grabbing';
             } else {
@@ -1960,8 +2464,12 @@ function gamesGo() {
               gameSixNextButton.style.border = '1px solid lime';
               isActive = false;
             }
-            if (temp.offsetTop + 50 < playFieldObj.height && temp.offsetTop > 0) {
-              const translation = (e.clientY + positioningExtra[1]) / playFieldObj.height;
+            if (
+              temp.offsetTop + 50 < playFieldObj.height &&
+              temp.offsetTop > 0
+            ) {
+              const translation =
+                (e.clientY + positioningExtra[1]) / playFieldObj.height;
               temp.style.top = `${translation * 100}%`;
               temp.style.cursor = 'grabbing';
             } else {
@@ -2005,7 +2513,10 @@ function gamesGo() {
             const retrievedMasterParsed = JSON.parse(retrievedMaster);
             retrievedMasterParsed.gameSix.totalWins += 1;
             retrievedMasterParsed.gameSix.totalMoves += finalClickCount;
-            localStorage.setItem('master', JSON.stringify(retrievedMasterParsed));
+            localStorage.setItem(
+              'master',
+              JSON.stringify(retrievedMasterParsed)
+            );
           }
         }
       }
@@ -2024,7 +2535,8 @@ function gamesGo() {
     // Details pop-up.
     const gameSixDetails = document.createElement('div');
     gameSixDetails.id = 'gameSixDetails';
-    gameSixDetails.textContent = 'Uncover the JavaScript facts by clicking on and moving different circles; until all have been interacted with. But beware of colliding circles against the edges.';
+    gameSixDetails.textContent =
+      'Uncover the JavaScript facts by clicking on and moving different circles; until all have been interacted with. But beware of colliding circles against the edges.';
     // Paragraph element for the performance stats.
     const gameSixStatsP = document.createElement('p');
     gameSixStatsP.id = 'gameSixStatsP';
@@ -2042,7 +2554,11 @@ function gamesGo() {
       const retrievedMaster = localStorage.getItem('master');
       const retrievedMasterParsed = JSON.parse(retrievedMaster);
       // Displaying current stats.
-      gameSixStatsP.textContent = `Total Wins: ${retrievedMasterParsed.gameSix.totalWins} and Average Moves Per Game: ${movesPerGame(retrievedMasterParsed).toFixed(2)}`;
+      gameSixStatsP.textContent = `Total Wins: ${
+        retrievedMasterParsed.gameSix.totalWins
+      } and Average Moves Per Game: ${movesPerGame(
+        retrievedMasterParsed
+      ).toFixed(2)}`;
       // Event listener for closing the Details pop-up.
       gameSixDetailsClose.addEventListener('click', () => {
         display.removeChild(gameSixDetails);
@@ -2189,7 +2705,34 @@ function gamesGo() {
     // Determining if the input is valid.
     gameSevenUI.addEventListener('keydown', (e) => {
       const k = e.key;
-      if (k === 'a' || k === 'b' || k === 'c' || k === 'd' || k === 'e' || k === 'f' || k === 'g' || k === 'h' || k === 'i' || k === 'j' || k === 'k' || k === 'l' || k === 'm' || k === 'n' || k === 'o' || k === 'p' || k === 'q' || k === 'r' || k === 's' || k === 't' || k === 'u' || k === 'v' || k === 'w' || k === 'x' || k === 'y' || k === 'z') {
+      if (
+        k === 'a' ||
+        k === 'b' ||
+        k === 'c' ||
+        k === 'd' ||
+        k === 'e' ||
+        k === 'f' ||
+        k === 'g' ||
+        k === 'h' ||
+        k === 'i' ||
+        k === 'j' ||
+        k === 'k' ||
+        k === 'l' ||
+        k === 'm' ||
+        k === 'n' ||
+        k === 'o' ||
+        k === 'p' ||
+        k === 'q' ||
+        k === 'r' ||
+        k === 's' ||
+        k === 't' ||
+        k === 'u' ||
+        k === 'v' ||
+        k === 'w' ||
+        k === 'x' ||
+        k === 'y' ||
+        k === 'z'
+      ) {
         ++inputTotal;
       }
     });
@@ -2233,7 +2776,8 @@ function gamesGo() {
     // Details pop-up.
     const gameSevenDetails = document.createElement('div');
     gameSevenDetails.id = 'gameSevenDetails';
-    gameSevenDetails.textContent = 'Type the randomly selected word into the text field using lowercase English letters, and see how long it takes you by referencing the automatic timer.';
+    gameSevenDetails.textContent =
+      'Type the randomly selected word into the text field using lowercase English letters, and see how long it takes you by referencing the automatic timer.';
     // Paragraph element for the performance stats.
     const gameSevenStatsP = document.createElement('p');
     gameSevenStatsP.id = 'gameSevenStatsP';
@@ -2251,21 +2795,29 @@ function gamesGo() {
       const retrievedMasterParsed = JSON.parse(retrievedMaster);
       // Support functions.
       function averageTime() {
-        const answer = retrievedMasterParsed.gameSeven.totalTime / retrievedMasterParsed.gameSeven.totalWins;
+        const answer =
+          retrievedMasterParsed.gameSeven.totalTime /
+          retrievedMasterParsed.gameSeven.totalWins;
         if (Number.isNaN(answer)) {
           return 0;
         }
         return answer;
       }
       function averageInputs() {
-        const answer = retrievedMasterParsed.gameSeven.totalInputs / retrievedMasterParsed.gameSeven.totalWins;
+        const answer =
+          retrievedMasterParsed.gameSeven.totalInputs /
+          retrievedMasterParsed.gameSeven.totalWins;
         if (Number.isNaN(answer)) {
           return 0;
         }
         return answer;
       }
       // Displaying current stats.
-      gameSevenStatsP.textContent = `Total Wins: ${retrievedMasterParsed.gameSeven.totalWins}, Average Seconds Per Word: ${averageTime().toFixed(2)} and Average Inputs Per Word: ${averageInputs().toFixed(2)}`;
+      gameSevenStatsP.textContent = `Total Wins: ${
+        retrievedMasterParsed.gameSeven.totalWins
+      }, Average Seconds Per Word: ${averageTime().toFixed(
+        2
+      )} and Average Inputs Per Word: ${averageInputs().toFixed(2)}`;
       // Event listener for closing the Details pop-up.
       gameSevenDetailsClose.addEventListener('click', () => {
         display.removeChild(gameSevenDetails);
@@ -2274,7 +2826,15 @@ function gamesGo() {
   }
   /// ///////Randomized navigation event listeners.
   const navArray = [g1, g2, g3, g4, g5, g6, g7];
-  const gameFunctionArray = [makeGameOne, makeGameTwo, makeGameThree, makeGameFour, makeGameFive, makeGameSix, makeGameSeven];
+  const gameFunctionArray = [
+    makeGameOne,
+    makeGameTwo,
+    makeGameThree,
+    makeGameFour,
+    makeGameFive,
+    makeGameSix,
+    makeGameSeven,
+  ];
   let gameFunctionArraySorted = gameFunctionArray.sort(randomize);
   for (let z = 0; z < 10; z += 1) {
     gameFunctionArraySorted = gameFunctionArraySorted.sort(randomize);

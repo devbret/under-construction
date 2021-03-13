@@ -11,16 +11,53 @@ function main() {
   const numOfSingleWords = document.querySelector('#numOfSingleWords');
   const numOfSingleWordsRep = document.querySelector('#numOfSingleWordsRep');
   const numOfTwoWordPhrases = document.querySelector('#numOfTwoWordPhrases');
-  const numOfTwoWordPhrasesRep = document.querySelector('#numOfTwoWordPhrasesRep');
+  const numOfTwoWordPhrasesRep = document.querySelector(
+    '#numOfTwoWordPhrasesRep'
+  );
   const results = document.querySelector('#results');
   let opened = 0;
   let excludedWords = [];
   const vowels = ['a', 'e', 'i', 'o', 'u'];
-  const punctuation = ['.', ',', '?', '!', ':', ';', '-', '_', '\'', '"', '(', ')', ']', '[', '/', '@', '#', '$', '%', '^', '&', '*', '=', '\\', '|', '{', '}', '<', '>', '`', '~'];
+  const punctuation = [
+    '.',
+    ',',
+    '?',
+    '!',
+    ':',
+    ';',
+    '-',
+    '_',
+    "'",
+    '"',
+    '(',
+    ')',
+    ']',
+    '[',
+    '/',
+    '@',
+    '#',
+    '$',
+    '%',
+    '^',
+    '&',
+    '*',
+    '=',
+    '\\',
+    '|',
+    '{',
+    '}',
+    '<',
+    '>',
+    '`',
+    '~',
+  ];
   const sentences = ['. ', '." ', '! ', '!" ', '? ', '?" '];
-  let totalPunctuation; let totalLetters; let totalChars; let totalVowels; let
-    totalConsonants;
-    /// ///////Reseting program when page is (re)loaded.
+  let totalPunctuation;
+  let totalLetters;
+  let totalChars;
+  let totalVowels;
+  let totalConsonants;
+  /// ///////Reseting program when page is (re)loaded.
   window.addEventListener('load', () => {
     userTextInput.value = '';
     exclude.checked = 'true';
@@ -33,7 +70,177 @@ function main() {
   // Whether or not the default words are excluded from processing.
   function excludeCheck() {
     if (exclude.checked) {
-      const tempArray = ['the', 'be', 'of', 'and', 'a', 'to', 'in', 'he', 'have', 'it', 'that', 'for', 'they', 'i', 'with', 'as', 'not', 'on', 'she', 'at', 'by', 'this', 'we', 'you', 'do', 'but', 'from', 'or', 'which', 'one', 'would', 'all', 'will', 'there', 'say', 'who', 'make', 'when', 'can', 'more', 'if', 'no', 'man', 'out', 'other', 'so', 'what', 'time', 'up', 'go', 'about', 'than', 'into', 'could', 'state', 'only', 'new', 'year', 'some', 'take', 'come', 'these', 'know', 'see', 'use', 'get', 'like', 'then', 'first', 'any', 'work', 'now', 'may', 'such', 'give', 'over', 'think', 'most', 'even', 'find', 'day', 'also', 'after', 'way', 'many', 'must', 'look', 'before', 'great', 'back', 'through', 'long', 'where', 'much', 'should', 'well', 'people', 'down', 'own', 'just', 'his', 'was', 'had', 'him', 'an', 'were', 'its', 'is', 'me', 'your', 'got', 'been', 'here', 'them', 'my', 'youre', 'their', 'are', 'dont', 'took', 'im', 'her', 'how', 'thats', 'himself', 'said', 'hed', 'else', 'am', 'yet', 'our', 'did', 'very', 'every', 'shall', 'saw', 'those', 'whom', 'has', 'thus', 'us', 'went', 'upon', 'herself', 'oh', 'la', 'el', 'ever', 'cant', 'ie', 'mr', 'miss', 'mrs', 'ms', 'having', 'came', 'yeah', 'mean', 'too', 'theyre', 'youve', 'ive', 'didnt', 'ye', 'unto', 'thou', 'hath', 'thee', 'thy'];
+      const tempArray = [
+        'the',
+        'be',
+        'of',
+        'and',
+        'a',
+        'to',
+        'in',
+        'he',
+        'have',
+        'it',
+        'that',
+        'for',
+        'they',
+        'i',
+        'with',
+        'as',
+        'not',
+        'on',
+        'she',
+        'at',
+        'by',
+        'this',
+        'we',
+        'you',
+        'do',
+        'but',
+        'from',
+        'or',
+        'which',
+        'one',
+        'would',
+        'all',
+        'will',
+        'there',
+        'say',
+        'who',
+        'make',
+        'when',
+        'can',
+        'more',
+        'if',
+        'no',
+        'man',
+        'out',
+        'other',
+        'so',
+        'what',
+        'time',
+        'up',
+        'go',
+        'about',
+        'than',
+        'into',
+        'could',
+        'state',
+        'only',
+        'new',
+        'year',
+        'some',
+        'take',
+        'come',
+        'these',
+        'know',
+        'see',
+        'use',
+        'get',
+        'like',
+        'then',
+        'first',
+        'any',
+        'work',
+        'now',
+        'may',
+        'such',
+        'give',
+        'over',
+        'think',
+        'most',
+        'even',
+        'find',
+        'day',
+        'also',
+        'after',
+        'way',
+        'many',
+        'must',
+        'look',
+        'before',
+        'great',
+        'back',
+        'through',
+        'long',
+        'where',
+        'much',
+        'should',
+        'well',
+        'people',
+        'down',
+        'own',
+        'just',
+        'his',
+        'was',
+        'had',
+        'him',
+        'an',
+        'were',
+        'its',
+        'is',
+        'me',
+        'your',
+        'got',
+        'been',
+        'here',
+        'them',
+        'my',
+        'youre',
+        'their',
+        'are',
+        'dont',
+        'took',
+        'im',
+        'her',
+        'how',
+        'thats',
+        'himself',
+        'said',
+        'hed',
+        'else',
+        'am',
+        'yet',
+        'our',
+        'did',
+        'very',
+        'every',
+        'shall',
+        'saw',
+        'those',
+        'whom',
+        'has',
+        'thus',
+        'us',
+        'went',
+        'upon',
+        'herself',
+        'oh',
+        'la',
+        'el',
+        'ever',
+        'cant',
+        'ie',
+        'mr',
+        'miss',
+        'mrs',
+        'ms',
+        'having',
+        'came',
+        'yeah',
+        'mean',
+        'too',
+        'theyre',
+        'youve',
+        'ive',
+        'didnt',
+        'ye',
+        'unto',
+        'thou',
+        'hath',
+        'thee',
+        'thy',
+      ];
       for (let i = 0; i < tempArray.length; i += 1) {
         excludedWords.push(tempArray[i]);
       }
@@ -54,7 +261,12 @@ function main() {
   function countSentences(t, sen, index, arr) {
     let sentenceCount = t;
     if (arr[index] && arr[index + 1] && arr[index + 2]) {
-      if (sentences.some((z) => z === `${arr[index]}${arr[index + 1]}${arr[index + 2]}`) || sentences.some((z) => z === `${arr[index]}${arr[index + 1]}`)) {
+      if (
+        sentences.some(
+          (z) => z === `${arr[index]}${arr[index + 1]}${arr[index + 2]}`
+        ) ||
+        sentences.some((z) => z === `${arr[index]}${arr[index + 1]}`)
+      ) {
         sentenceCount += 1;
       }
     }
@@ -84,7 +296,11 @@ function main() {
       }
     }
     const answer = holder.join('');
-    if (answer !== '' && answer !== ' ' && excludedWords.every((e) => answer !== e)) {
+    if (
+      answer !== '' &&
+      answer !== ' ' &&
+      excludedWords.every((e) => answer !== e)
+    ) {
       t.push(answer);
     }
     return t;
@@ -103,6 +319,7 @@ function main() {
       // ++t[index].times;
       t[index] = {
         ...t[index],
+
         times: t[index].times + 1,
       };
     }
@@ -122,7 +339,9 @@ function main() {
       if (t.every((z) => z.word !== `${arr[index]}${arr[index + 1]}`)) {
         t.push({ word: `${arr[index]}${arr[index + 1]}`, times: 1 });
       } else {
-        const indy = t.findIndex((x) => x.word === `${arr[index]}${arr[index + 1]}`);
+        const indy = t.findIndex(
+          (x) => x.word === `${arr[index]}${arr[index + 1]}`
+        );
         t[indy].times += 1;
       }
     }
@@ -134,7 +353,9 @@ function main() {
       if (t.every((z) => z.word !== `${arr[index]} ${arr[index + 1]}`)) {
         t.push({ word: `${arr[index]} ${arr[index + 1]}`, times: 1 });
       } else {
-        const indy = t.findIndex((x) => x.word === `${arr[index]} ${arr[index + 1]}`);
+        const indy = t.findIndex(
+          (x) => x.word === `${arr[index]} ${arr[index + 1]}`
+        );
         t[indy].times += 1;
       }
     }
@@ -144,7 +365,8 @@ function main() {
   function properSort(a, b) {
     if (a.times > b.times) {
       return -1;
-    } if (b.times > a.times) {
+    }
+    if (b.times > a.times) {
       return 1;
     }
     return 0;
@@ -188,13 +410,19 @@ function main() {
     numOfTwoLettersRep.innerText = this.value;
   });
   /// ///////Number of single words to display.
-  numOfSingleWords.addEventListener('input', function onNumOfSingleWordsInput() {
-    numOfSingleWordsRep.innerText = this.value;
-  });
+  numOfSingleWords.addEventListener(
+    'input',
+    function onNumOfSingleWordsInput() {
+      numOfSingleWordsRep.innerText = this.value;
+    }
+  );
   /// ///////Number of two word phrases to display.
-  numOfTwoWordPhrases.addEventListener('input', function ofNumTwoWordPhrasesInput() {
-    numOfTwoWordPhrasesRep.innerText = this.value;
-  });
+  numOfTwoWordPhrases.addEventListener(
+    'input',
+    function ofNumTwoWordPhrasesInput() {
+      numOfTwoWordPhrasesRep.innerText = this.value;
+    }
+  );
   /// ///////The primary action/function for this program.
   submitButton.addEventListener('click', () => {
     // Making sure the user has input at least one character value before running the application.
@@ -225,7 +453,10 @@ function main() {
       const data = filteredData.reduce(filterData, []);
       // Unique two letter combos.
       const joinedAndSplitData = data.join('').split('');
-      const uniqueTwoLetterCombos = joinedAndSplitData.reduce(dualLetterReduce, []);
+      const uniqueTwoLetterCombos = joinedAndSplitData.reduce(
+        dualLetterReduce,
+        []
+      );
       // Unique individual words.
       const uniqueWords = data.reduce(singleMemberReduce, []);
       // Unique two word phrases
@@ -240,19 +471,82 @@ function main() {
       const sortedTwoWordPhrases = uniqueTwoWordPhrases.sort(properSort);
       // Calculating the final or total amount of time processing took to complete.
       const endTime = new Date();
-      const totalTime = ((endTime.getTime() - startTime.getTime()) / 1000).toFixed(2);
+      const totalTime = (
+        (endTime.getTime() - startTime.getTime()) /
+        1000
+      ).toFixed(2);
       // Displaying the primary stats.
       makeHTMLElement('h3', 'Summary', 'summary');
-      makeHTMLElement('p', `Your submitted text contains ${totalSentences} sentences, ${totalChars} characters, ${data.length} total words and ${uniqueWords.length} unique words. With an average of ${(Number.isFinite(data.length / totalSentences) ? (data.length / totalSentences) : 0).toFixed(2)} words and ${(Number.isNaN(totalPunctuation / totalSentences) ? 0 : (totalPunctuation / totalSentences)).toFixed(2)} punctuation marks per sentence, as well as ${(Number.isNaN(totalChars / data.length) ? 0 : (totalChars / data.length)).toFixed(2)} letters per word; each including ${(Number.isNaN(totalVowels / data.length) ? 0 : (totalVowels / data.length)).toFixed(2)} vowels and ${(Number.isNaN(totalConsonants / data.length) ? 0 : (totalConsonants / data.length)).toFixed(2)} consonants. And took ${totalTime || 0} seconds to be evaluated, at a speed of ${(data.length / (totalTime >= 1 ? totalTime : 1)).toFixed(2)} words per second (WPS).`, 'output');
-      makeHTMLElement('p', `The estimated reading time for your text is ${(predata.length / 180).toFixed(2)} minutes, while the estimated speaking time is ${(predata.length / 125).toFixed(2)} minutes. Your text also has a novelty score of ${(Number.isNaN((uniqueWords.length / data.length) * 100) ? 0 : ((uniqueWords.length / data.length) * 100)).toFixed(2)}%.`, 'secondaryOutput');
+      makeHTMLElement(
+        'p',
+        `Your submitted text contains ${totalSentences} sentences, ${totalChars} characters, ${
+          data.length
+        } total words and ${
+          uniqueWords.length
+        } unique words. With an average of ${(Number.isFinite(
+          data.length / totalSentences
+        )
+          ? data.length / totalSentences
+          : 0
+        ).toFixed(2)} words and ${(Number.isNaN(
+          totalPunctuation / totalSentences
+        )
+          ? 0
+          : totalPunctuation / totalSentences
+        ).toFixed(
+          2
+        )} punctuation marks per sentence, as well as ${(Number.isNaN(
+          totalChars / data.length
+        )
+          ? 0
+          : totalChars / data.length
+        ).toFixed(2)} letters per word; each including ${(Number.isNaN(
+          totalVowels / data.length
+        )
+          ? 0
+          : totalVowels / data.length
+        ).toFixed(2)} vowels and ${(Number.isNaN(totalConsonants / data.length)
+          ? 0
+          : totalConsonants / data.length
+        ).toFixed(2)} consonants. And took ${
+          totalTime || 0
+        } seconds to be evaluated, at a speed of ${(
+          data.length / (totalTime >= 1 ? totalTime : 1)
+        ).toFixed(2)} words per second (WPS).`,
+        'output'
+      );
+      makeHTMLElement(
+        'p',
+        `The estimated reading time for your text is ${(
+          predata.length / 180
+        ).toFixed(2)} minutes, while the estimated speaking time is ${(
+          predata.length / 125
+        ).toFixed(
+          2
+        )} minutes. Your text also has a novelty score of ${(Number.isNaN(
+          (uniqueWords.length / data.length) * 100
+        )
+          ? 0
+          : (uniqueWords.length / data.length) * 100
+        ).toFixed(2)}%.`,
+        'secondaryOutput'
+      );
       // Displaying the common single letters used.
       makeHTMLElement('h3', 'Common Single Letters');
       makeParagraphElement('commonLetters');
-      displayItems(sortedUniqueLetters.length, commonLetters, sortedUniqueLetters);
+      displayItems(
+        sortedUniqueLetters.length,
+        commonLetters,
+        sortedUniqueLetters
+      );
       // Displaying the two letter combos.
       makeHTMLElement('h3', 'Common Two Letter Combos');
       makeParagraphElement('commonLetterCombos');
-      displayItems(numOfTwoLetters.value, commonLetterCombos, sortTwoLetterCombos);
+      displayItems(
+        numOfTwoLetters.value,
+        commonLetterCombos,
+        sortTwoLetterCombos
+      );
       // Displaying the common single words used.
       makeHTMLElement('h3', 'Common Single Words');
       makeParagraphElement('commonWords');
@@ -260,7 +554,11 @@ function main() {
       // Displaying the common two word phrases used.
       makeHTMLElement('h3', 'Common Two Word Phrases');
       makeParagraphElement('commonPhrases');
-      displayItems(numOfTwoWordPhrases.value, commonPhrases, sortedTwoWordPhrases);
+      displayItems(
+        numOfTwoWordPhrases.value,
+        commonPhrases,
+        sortedTwoWordPhrases
+      );
     }
   });
 }

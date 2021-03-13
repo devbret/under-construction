@@ -1,317 +1,357 @@
 * {
-    padding: 0px;
-    border: none;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: sans-serif;
+  padding: 0px;
+  border: none;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 header {
-    text-align: center;
+  text-align: center;
 }
 header p {
-    font-size: 16px;
-    display: block;
-    padding: 0px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.0);
+  font-size: 16px;
+  display: block;
+  padding: 0px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
 }
 footer {
-    text-align: center;
+  text-align: center;
 }
 h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 button {
-    padding: 4px 6px;
-    border: 1px solid black;
-    background-color: lightgray;
-    box-shadow: 0px 0px 0px 1px lightgray;
+  padding: 4px 6px;
+  border: 1px solid black;
+  background-color: lightgray;
+  box-shadow: 0px 0px 0px 1px lightgray;
 }
 button:hover {
-    background-color: gold;
-    cursor: pointer;
+  background-color: gold;
+  cursor: pointer;
 }
 .game {
-    min-height: 100%;
-    min-width: 14.29%;
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  min-height: 100%;
+  min-width: 14.29%;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .game:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .primaryInterface {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid black;
-    border-top: 1px solid black;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow-x: hidden;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid black;
+  border-top: 1px solid black;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow-x: hidden;
 }
 .gameNumbers {
-    font-weight: normal;
+  font-weight: normal;
 }
 .userInput {
-    border: 1px solid black;
-    width: 90%;
-    margin: 10px 0px;
+  border: 1px solid black;
+  width: 90%;
+  margin: 10px 0px;
 }
 .multiChoiceAnswers {
-    width: 50%;
-    padding: 8px 0px;
-    box-shadow: none;
-    overflow: hidden;
+  width: 50%;
+  padding: 8px 0px;
+  box-shadow: none;
+  overflow: hidden;
 }
 .greenButton {
-    border: 1px solid lime;
+  border: 1px solid lime;
 }
 .tempSquares {
-    background-color: white;
-    border: 1px solid black;
-    box-shadow: inset 0px 0px 3px 0px darkgray;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 11px;
-    overflow: hidden;
+  background-color: white;
+  border: 1px solid black;
+  box-shadow: inset 0px 0px 3px 0px darkgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 11px;
+  overflow: hidden;
 }
 .scrambledCodeBlock {
-    background-color: white;
-    font-size: 12px;
-    padding: 10px 7px;
-    margin: 4px 2px 0px 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid black;
-    user-select: none;
+  background-color: white;
+  font-size: 12px;
+  padding: 10px 7px;
+  margin: 4px 2px 0px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  user-select: none;
 }
 .scrambledCodeBlock:hover {
-    cursor: grab;
+  cursor: grab;
 }
 .gameSixCircles {
-    border-radius: 50%;
-    border: 1px solid black;
-    position: absolute;
-    user-select: none;
-    background: rgba(255,255,255,0.67);
-    box-shadow: 0px 0px 3px 0px darkgray;
+  border-radius: 50%;
+  border: 1px solid black;
+  position: absolute;
+  user-select: none;
+  background: rgba(255, 255, 255, 0.67);
+  box-shadow: 0px 0px 3px 0px darkgray;
 }
 .factP {
-    display: none;
+  display: none;
 }
 #subtext {
-    font-size: 20px;
-    background-color: rgb(255, 255, 255);
-    display: inline-block;
-    padding: 5px 15px;
-    border: 1px solid lightgray;
+  font-size: 20px;
+  background-color: rgb(255, 255, 255);
+  display: inline-block;
+  padding: 5px 15px;
+  border: 1px solid lightgray;
 }
 #gameContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 #frame {
-    width: 300px;
-    border-top: none;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+  width: 300px;
+  border-top: none;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 #gamesHeader {
-    width: 300px;
-    padding: 0px;
-    margin: 0px auto;
-    z-index: 1;
+  width: 300px;
+  padding: 0px;
+  margin: 0px auto;
+  z-index: 1;
 }
 #display {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 #games {
-    min-height: 25px;
-    min-width: 100%;
-    width: 100%;
-    padding: 0px;
-    border: 1px solid black;
-    border-bottom: none;
-    display: flex;
-    flex-direction: row;
+  min-height: 25px;
+  min-width: 100%;
+  width: 100%;
+  padding: 0px;
+  border: 1px solid black;
+  border-bottom: none;
+  display: flex;
+  flex-direction: row;
 }
 #answerRevealedP {
-    padding: 0px 5px 2px 5px;
-    border-bottom: 1px solid darkgray;
+  padding: 0px 5px 2px 5px;
+  border-bottom: 1px solid darkgray;
 }
 #answerRevealedPGreen {
-    border-bottom: 1px solid lime;
+  border-bottom: 1px solid lime;
 }
 #answerRevealedP span {
-    margin: 0px 3px;
+  margin: 0px 3px;
 }
 #incorrectGuessesP {
-    margin: 10px 0px;
+  margin: 10px 0px;
 }
-#totalGuessesP, #gameFiveDiffP {
-    margin-bottom: 40px;
+#totalGuessesP,
+#gameFiveDiffP {
+  margin-bottom: 40px;
 }
-#gameOneRetry, #gameTwoNextButton, #gameThreeNextButton, #gameFourNextButton, #gameFiveNextButton, #gameSixNextButton, #gameSevenNextButton {
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
+#gameOneRetry,
+#gameTwoNextButton,
+#gameThreeNextButton,
+#gameFourNextButton,
+#gameFiveNextButton,
+#gameSixNextButton,
+#gameSevenNextButton {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
 }
-#detailsGameOne, #detailsGameTwo, #detailsGameThree, #detailsGameFour, #detailsGameFive, #detailsGameSix, #detailsGameSeven {
-    position: absolute;
-    left: 5px;
-    bottom: 5px;
+#detailsGameOne,
+#detailsGameTwo,
+#detailsGameThree,
+#detailsGameFour,
+#detailsGameFive,
+#detailsGameSix,
+#detailsGameSeven {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
 }
-#gameOneDetails, #gameTwoDetails, #gameThreeDetails, #gameFourDetails, #gameFiveDetails, #gameSixDetails, #gameSevenDetails {
-    background-color: white;
-    margin-bottom: 20px;
-    max-width: 250px;
-    padding: 10px;
-    border: 1px solid black;
-    position: absolute;
-    box-shadow: 0px 0px 5px 2px darkgray;
-    text-align: left;
+#gameOneDetails,
+#gameTwoDetails,
+#gameThreeDetails,
+#gameFourDetails,
+#gameFiveDetails,
+#gameSixDetails,
+#gameSevenDetails {
+  background-color: white;
+  margin-bottom: 20px;
+  max-width: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  position: absolute;
+  box-shadow: 0px 0px 5px 2px darkgray;
+  text-align: left;
 }
-#gameOneStatsP, #gameTwoStatsP, #gameThreeStatsP, #gameFourStatsP, #gameFiveStatsP, #gameSixStatsP, #gameSevenStatsP {
-    text-align: center;
-    font-size: 12px;
-    margin-top: 10px;
+#gameOneStatsP,
+#gameTwoStatsP,
+#gameThreeStatsP,
+#gameFourStatsP,
+#gameFiveStatsP,
+#gameSixStatsP,
+#gameSevenStatsP {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 10px;
 }
-#gameOneDetailsClose, #gameTwoDetailsClose, #gameThreeDetailsClose, #gameFourDetailsClose, #gameFiveDetailsClose, #gameSixDetailsClose, #gameSevenDetailsClose {
-    position: absolute;
-    top: 0px;
-    right: 5px;
+#gameOneDetailsClose,
+#gameTwoDetailsClose,
+#gameThreeDetailsClose,
+#gameFourDetailsClose,
+#gameFiveDetailsClose,
+#gameSixDetailsClose,
+#gameSevenDetailsClose {
+  position: absolute;
+  top: 0px;
+  right: 5px;
 }
-#gameOneDetailsClose:hover, #gameTwoDetailsClose:hover, #gameThreeDetailsClose:hover, #gameFourDetailsClose:hover, #gameFiveDetailsClose:hover, #gameSixDetailsClose:hover, #gameSevenDetailsClose:hover {
-    cursor: pointer;
-    color: red;
+#gameOneDetailsClose:hover,
+#gameTwoDetailsClose:hover,
+#gameThreeDetailsClose:hover,
+#gameFourDetailsClose:hover,
+#gameFiveDetailsClose:hover,
+#gameSixDetailsClose:hover,
+#gameSevenDetailsClose:hover {
+  cursor: pointer;
+  color: red;
 }
 #gameTwoQuestionTextP {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 #answersDIV {
-    width: 100%;
-    border: 1px solid black;
-    margin-bottom: 40px;
-    display: flex;
-    flex-wrap: wrap;
+  width: 100%;
+  border: 1px solid black;
+  margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
 }
 #gameThreeChallengeTextP {
-    padding: 0px 5px 2px 5px;
-    border-bottom: 1px solid darkgray;
+  padding: 0px 5px 2px 5px;
+  border-bottom: 1px solid darkgray;
 }
 #gameThreeButtonDIV {
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 #gameThreeIncorrectGuesses {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 #gameThreeTotalGuesses {
-    margin: 10px 0px 40px 0px;
+  margin: 10px 0px 40px 0px;
 }
 #squareHolder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    border: 1px solid black;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-    background-color: darkgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: 1px solid black;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  background-color: darkgray;
 }
 #g5H4Title {
-    margin-bottom: 11px;
+  margin-bottom: 11px;
 }
 #gameFiveReDIV {
-    padding: 0px 3px 2px 3px;
-    border-bottom: 1px solid darkgray;
-    margin-bottom: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  padding: 0px 3px 2px 3px;
+  border-bottom: 1px solid darkgray;
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 #gameFiveMovesP {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 #playField {
-    width: 100%;
-    height: 350px;
-    padding: 5px;
-    border: 1px solid black;
-    margin-bottom: 40px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
+  width: 100%;
+  height: 350px;
+  padding: 5px;
+  border: 1px solid black;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
 }
 #gameSevenUI {
-    margin: 15px 0px;
+  margin: 15px 0px;
 }
 #totalCharInput {
-    margin: 15px 0px 40px 0px;
+  margin: 15px 0px 40px 0px;
 }
 #projects {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 #projectOne {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 #gamesDescription {
-    width: 100%;
-    margin: 0px;
-    text-align: left;
+  width: 100%;
+  margin: 0px;
+  text-align: left;
 }
 #gamesDescription h3 {
-    margin-bottom: 0px;
-    text-align: center;
+  margin-bottom: 0px;
+  text-align: center;
 }
 #gamesDescription p {
-    margin: 15px 15px 0px 15px;
+  margin: 15px 15px 0px 15px;
 }
 @media screen and (max-width: 650px) {
-    main {
-        flex-direction: column;
-    }
-    #col1 {
-        padding-bottom: 15px;
-    }
+  main {
+    flex-direction: column;
+  }
+  #col1 {
+    padding-bottom: 15px;
+  }
 }
 @media screen and (max-width: 450px) {
-    #subtext {
-        font-size: 16px;
-    }
+  #subtext {
+    font-size: 16px;
+  }
 }
 @media screen and (max-width: 330px) {
-    #gameContainer, #projectOne, #frame, #gamesHeader {
-        width: 100%;
-    }
+  #gameContainer,
+  #projectOne,
+  #frame,
+  #gamesHeader {
+    width: 100%;
+  }
 }

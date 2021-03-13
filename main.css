@@ -1,87 +1,88 @@
 * {
-    padding: 0px;
-    border: none;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: sans-serif;
+  padding: 0px;
+  border: none;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 body {
-    background-image: url("/bg.webp");
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    overflow-x: hidden;
+  background-image: url('/bg.webp');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  overflow-x: hidden;
 }
 header {
-    background-color: white;
-    width: 960px;
-    margin: 25px auto 0px auto;
-    text-align: center;
-    padding: 15px 15px 15px 15px;
-    position: relative;
-    z-index: -100;
+  background-color: white;
+  width: 960px;
+  margin: 25px auto 0px auto;
+  text-align: center;
+  padding: 15px 15px 15px 15px;
+  position: relative;
+  z-index: -100;
 }
 header p {
-    font-size: 20px;
-    background-color: rgba(255, 255, 255,0.93);
-    display: inline-block;
-    padding: 5px 15px;
-    border: 1px solid lightgray;
-    font-weight: bold;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.93);
+  display: inline-block;
+  padding: 5px 15px;
+  border: 1px solid lightgray;
+  font-weight: bold;
 }
 nav {
-    background-color: white;
-    width: 100%;
-    margin: 0px auto;
-    text-align: left;
+  background-color: white;
+  width: 100%;
+  margin: 0px auto;
+  text-align: left;
 }
 nav p {
-    font-size: 14px;
+  font-size: 14px;
 }
 main {
-    background-color: white;
-    width: 960px;
-    padding: 0px 15px;
-    margin: 0px auto;
-    text-align: center;
-    display: flex;
-    align-items: flex-start;
+  background-color: white;
+  width: 960px;
+  padding: 0px 15px;
+  margin: 0px auto;
+  text-align: center;
+  display: flex;
+  align-items: flex-start;
 }
 footer {
-    background-color: white;
-    width: 960px;
-    margin: 0px auto 25px auto;
-    text-align: center;
-    padding: 35px 15px;
+  background-color: white;
+  width: 960px;
+  margin: 0px auto 25px auto;
+  text-align: center;
+  padding: 35px 15px;
 }
 footer p {
-    font-size: 12px;
-    margin: 15px 0px;
+  font-size: 12px;
+  margin: 15px 0px;
 }
 img {
-    border: 1px solid darkgray;
+  border: 1px solid darkgray;
 }
 h1 {
-    font-size: 60px;
-    text-shadow: 1px 1px lightgray, 1px -1px lightgray, -1px 1px lightgray, -1px -1px lightgray;
-    margin: 0px 0px 15px 0px;
-    background-color: rgba(255, 255, 255,0.93);
-    display: inline-block;
-    padding: 5px 30px;
-    border: 1px solid lightgray;
-    box-shadow: 0px 0px 3px 1px darkgray;
+  font-size: 60px;
+  text-shadow: 1px 1px lightgray, 1px -1px lightgray, -1px 1px lightgray,
+    -1px -1px lightgray;
+  margin: 0px 0px 15px 0px;
+  background-color: rgba(255, 255, 255, 0.93);
+  display: inline-block;
+  padding: 5px 30px;
+  border: 1px solid lightgray;
+  box-shadow: 0px 0px 3px 1px darkgray;
 }
 h2 {
-    font-size: 28px;
-    margin: 30px 0px 15px 0px;
-    text-align: center;
+  font-size: 28px;
+  margin: 30px 0px 15px 0px;
+  text-align: center;
 }
 a {
-    color: rgb(54, 51, 255);
-    text-decoration: none;
+  color: rgb(54, 51, 255);
+  text-decoration: none;
 }
 a:hover {
-    color: rgb(156, 51, 255);
+  color: rgb(156, 51, 255);
 }
 ul {
   padding: 0px 0px 0px 45px;
@@ -91,72 +92,72 @@ li {
   margin: 5px 15px 5px 0px;
 }
 .headerSqueeze {
-    padding: 15px;
-    border: 15px solid rgba(255,156,51.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000000000;
-    display: absolute;
-    z-index: -500;
-    background-color: rgba(255,255,255,0.53);
-    box-shadow: inset 0px 0px 3px 1px darkgray;
+  padding: 15px;
+  border: 15px solid rgba(255, 156, 51.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000000000;
+  display: absolute;
+  z-index: -500;
+  background-color: rgba(255, 255, 255, 0.53);
+  box-shadow: inset 0px 0px 3px 1px darkgray;
 }
 .headerSqueeze p {
-    box-shadow: 0px 0px 3px 1px darkgray;
+  box-shadow: 0px 0px 3px 1px darkgray;
 }
 .mainNav p {
-    border: 1px solid lightgray;
-    padding: 5px;
+  border: 1px solid lightgray;
+  padding: 5px;
 }
 .styledPrimary {
-    background-color: white;
-    padding: 15px 15px;
-    margin: 15px 0px 0px 0px;
-    border: 1px solid lightgray;
+  background-color: white;
+  padding: 15px 15px;
+  margin: 15px 0px 0px 0px;
+  border: 1px solid lightgray;
 }
 .styledPrimary h2 {
-    margin: 0px 0px 15px 0px;
+  margin: 0px 0px 15px 0px;
 }
 .homePageProject {
-    width: 100%;
-    border: 1px solid lightgray;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
+  width: 100%;
+  border: 1px solid lightgray;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
 }
 .homePageProject img {
-    width: 100%;
-    max-width: 300px;
-    max-height: 200px;
-    box-shadow: 0px 0px 3px 1px darkgray;
+  width: 100%;
+  max-width: 300px;
+  max-height: 200px;
+  box-shadow: 0px 0px 3px 1px darkgray;
 }
 .projectDetails {
-    padding: 10px 0px 10px 10px;
+  padding: 10px 0px 10px 10px;
 }
 .projectDetails p {
-    text-align: left;
-    margin: 15px 0px;
+  text-align: left;
+  margin: 15px 0px;
 }
 .projectLinkBox {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid lightgray;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 .projectLinkBox p {
-    font-size: 14px;
-    text-align: center;
-    margin: 5px;
+  font-size: 14px;
+  text-align: center;
+  margin: 5px;
 }
 .blogPostPreview {
   width: 100%;
   padding: 15px;
-  border:1px solid lightgray;
+  border: 1px solid lightgray;
   text-align: left;
 }
 .blogPostPreview h3 {
@@ -175,237 +176,243 @@ li {
   margin: 15px 15px 0px 15px;
 }
 #bgColoring {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100vw;
-    height: 100vw;
-    background: rgba(51, 150, 255,0.93);
-    z-index: -10000000;
-    overflow: hidden;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vw;
+  background: rgba(51, 150, 255, 0.93);
+  z-index: -10000000;
+  overflow: hidden;
 }
 #col1 {
-    width: 65%;
-    padding: 0px 15px 0px 0px;
+  width: 65%;
+  padding: 0px 15px 0px 0px;
 }
 #lastHomePageProject {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 #col2 {
-    width: 35%;
-    background-color: rgba(255, 156, 51, 0.5);
-    padding: 0px 15px;
+  width: 35%;
+  background-color: rgba(255, 156, 51, 0.5);
+  padding: 0px 15px;
 }
 #projectsContainer {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: space-around;
-    justify-content: space-around;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-around;
+  justify-content: space-around;
 }
 #aboutMe {
-    text-align: left;
+  text-align: left;
 }
 #initialGreeting {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 #techJourney {
-    margin: 15px 0px 0px 0px;
+  margin: 15px 0px 0px 0px;
 }
 #imageManipulation {
-    width: 100%;
-    padding: 15px 15px 25px 15px;
+  width: 100%;
+  padding: 15px 15px 25px 15px;
 }
 #imgHolder {
-    box-shadow: 0px 0px 3px 1px darkgray;
-    display: flex;
+  box-shadow: 0px 0px 3px 1px darkgray;
+  display: flex;
 }
 #meImage {
-    max-width: 100%;
-    max-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 #imageManipulationControls {
-    width: 100%;
-    margin-top: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: space-around;
-    justify-content: space-around;
+  width: 100%;
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-around;
+  justify-content: space-around;
 }
 #imageManipulationControls div {
-    width: 45%;
-    margin: 15px 0px 0px 0px;
+  width: 45%;
+  margin: 15px 0px 0px 0px;
 }
-#imageManipulationControls input[type=range] {
-    width: 100%;
+#imageManipulationControls input[type='range'] {
+  width: 100%;
 }
-#imageManipulationControls input[type=range]:hover {
-    cursor: pointer;
+#imageManipulationControls input[type='range']:hover {
+  cursor: pointer;
 }
 #resetButton {
-    padding: 6px 8px;
-    margin: 15px 0px 0px 0px;
-    border: 1px solid black;
+  padding: 6px 8px;
+  margin: 15px 0px 0px 0px;
+  border: 1px solid black;
 }
 #resetButton:hover {
-    cursor: pointer;
-    background-color: gold;
+  cursor: pointer;
+  background-color: gold;
 }
 #skillsHolder {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 #skillsHolder section h2 {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
-#skillsDiv, #softSkillsDiv {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+#skillsDiv,
+#softSkillsDiv {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
-#skillsDiv p, #softSkillsDiv p {
-    margin: 10px 5px 10px 5px;
-    font-weight: bolder;
-    font-size: 15px;
+#skillsDiv p,
+#softSkillsDiv p {
+  margin: 10px 5px 10px 5px;
+  font-weight: bolder;
+  font-size: 15px;
 }
 #intro {
-    padding: 0px 15px;
+  padding: 0px 15px;
 }
 #websiteDescription {
-    padding: 15px 15px 0px 15px;
+  padding: 15px 15px 0px 15px;
 }
 #contactInfo {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 #socialMedia {
-    text-align: left;
+  text-align: left;
 }
-#openSource, #blog {
-    margin: 0px 0px 15px 0px;
+#openSource,
+#blog {
+  margin: 0px 0px 15px 0px;
 }
 #toTop {
-    position: fixed;
-    right: 200px;
-    bottom: 0px;
-    background: white;
-    padding: 3px;
-    border: 1px solid lightgray;
+  position: fixed;
+  right: 200px;
+  bottom: 0px;
+  background: white;
+  padding: 3px;
+  border: 1px solid lightgray;
 }
 @media screen and (max-width: 1460px) {
-    #toTop {
-        right: 0px;
-    }
+  #toTop {
+    right: 0px;
+  }
 }
 @media screen and (max-width: 990px) {
-    header, nav, main, footer {
-        width: 100%;
-        margin: 0px;
-    }
-    footer {
-        padding: 35px 25px;
-    }
-    .homePageProject img {
-        width: 100%;
-
-    }
+  header,
+  nav,
+  main,
+  footer {
+    width: 100%;
+    margin: 0px;
+  }
+  footer {
+    padding: 35px 25px;
+  }
+  .homePageProject img {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 800px) {
-    .homePageProject {
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-    }
-    .homePageProject img {
-        margin-bottom: 5px;
-    }
-    .projectDetails {
-        padding: 15px 0px;
-    }
+  .homePageProject {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .homePageProject img {
+    margin-bottom: 5px;
+  }
+  .projectDetails {
+    padding: 15px 0px;
+  }
 }
 @media screen and (max-width: 650px) {
-    main {
-        flex-direction: column;
-    }
-    .homePageProject {
-        flex-direction: row;
-    }
-    .projectDetails {
-        padding: 10px 0px 10px 10px;
-    }
-    .projectDemo {
-        margin-top: 15px;
-    }
-    #col1, #col2 {
-        width: 100%;
-        padding: 0px;
-    }
-    #col2 {
-        padding: 0px 15px;
-    }
-    #topAsideDiv {
-        display: flex;
-        align-items: space-around;
-        justify-content: space-around;
-    }
-    #aboutMe {
-        width: 37.5%;
-    }
-    #imageManipulation {
-        width: 57.5%;
-    }
-    #socialMedia {
-        margin-bottom: 5px;
-    }
-    #skillsHolder {
-        flex-direction: row;
-        justify-content: space-around;
-    }
-    #skillsHolder section {
-        width: 47.5%;
-    }
-    #projectsContainer {
-        padding: 0px;
-    }
+  main {
+    flex-direction: column;
+  }
+  .homePageProject {
+    flex-direction: row;
+  }
+  .projectDetails {
+    padding: 10px 0px 10px 10px;
+  }
+  .projectDemo {
+    margin-top: 15px;
+  }
+  #col1,
+  #col2 {
+    width: 100%;
+    padding: 0px;
+  }
+  #col2 {
+    padding: 0px 15px;
+  }
+  #topAsideDiv {
+    display: flex;
+    align-items: space-around;
+    justify-content: space-around;
+  }
+  #aboutMe {
+    width: 37.5%;
+  }
+  #imageManipulation {
+    width: 57.5%;
+  }
+  #socialMedia {
+    margin-bottom: 5px;
+  }
+  #skillsHolder {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  #skillsHolder section {
+    width: 47.5%;
+  }
+  #projectsContainer {
+    padding: 0px;
+  }
 }
 @media screen and (max-width: 560px) {
-    h1 {
-        font-size: 40px;
-    }
-    .homePageProject {
-        flex-direction: column;
-    }
-    .projectDetails {
-        padding: 15px 0px;
-    }
-    #topAsideDiv {
-        flex-direction: column;
-    }
-    #aboutMe {
-        width: 100%;
-        padding-bottom: 20px;
-    }
-    #imageManipulation {
-        width: 100%;
-        margin: 15px auto 0px auto;
-    }
-    #skillsHolder {
-        flex-direction: column;
-    }
-    #skillsHolder section {
-        width: 100%;
-    }
+  h1 {
+    font-size: 40px;
+  }
+  .homePageProject {
+    flex-direction: column;
+  }
+  .projectDetails {
+    padding: 15px 0px;
+  }
+  #topAsideDiv {
+    flex-direction: column;
+  }
+  #aboutMe {
+    width: 100%;
+    padding-bottom: 20px;
+  }
+  #imageManipulation {
+    width: 100%;
+    margin: 15px auto 0px auto;
+  }
+  #skillsHolder {
+    flex-direction: column;
+  }
+  #skillsHolder section {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 450px) {
-    h1 {
-        font-size: 30px;
-    }
-    header p {
-        font-size: 16px;
-    }
+  h1 {
+    font-size: 30px;
+  }
+  header p {
+    font-size: 16px;
+  }
 }
 @media screen and (max-width: 300px) {
-    h1 {
-        font-size: 24px;
-    }
+  h1 {
+    font-size: 24px;
+  }
 }
