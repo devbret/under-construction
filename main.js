@@ -33,16 +33,16 @@
   const contrastSlider = doc.querySelector('#contrastSlider');
   const brightnessSlider = doc.querySelector('#brightnessSlider');
   const resetButton = doc.querySelector('#resetButton');
-  hueRotateSlider.addEventListener('input', function () {
+  hueRotateSlider.addEventListener('input', function onHueRotateSliderInput() {
     meImage.style.filter = `hue-rotate(${this.value}deg) saturate(${saturateSlider.value}%) contrast(${contrastSlider.value}%) brightness(${brightnessSlider.value}%)`;
   });
-  saturateSlider.addEventListener('input', function () {
+  saturateSlider.addEventListener('input', function onSaturateSliderInput() {
     meImage.style.filter = `hue-rotate(${hueRotateSlider.value}deg) saturate(${this.value}%) contrast(${contrastSlider.value}%) brightness(${brightnessSlider.value}%)`;
   });
-  contrastSlider.addEventListener('input', function () {
+  contrastSlider.addEventListener('input', function onContrastSliderInput() {
     meImage.style.filter = `hue-rotate(${hueRotateSlider.value}deg) saturate(${saturateSlider.value}%) contrast(${this.value}%) brightness(${brightnessSlider.value}%)`;
   });
-  brightnessSlider.addEventListener('input', function () {
+  brightnessSlider.addEventListener('input', function onBrightnessSliderInput() {
     meImage.style.filter = `hue-rotate(${hueRotateSlider.value}deg) saturate(${saturateSlider.value}%) contrast(${contrastSlider.value}%) brightness(${this.value}%)`;
   });
   resetButton.addEventListener('click', () => {

@@ -70,13 +70,17 @@ function main() {
         holder.push(innerLetter);
         if (totalLetters.some((l) => l.word === innerLetter)) {
           const index = totalLetters.findIndex((x) => x.word === innerLetter);
-          ++totalLetters[index].times;
+          // ++totalLetters[index].times;
+          totalLetters[index] = {
+            ...totalLetters[index],
+            times: totalLetters[index].times + 1,
+          };
         } else {
           totalLetters.push({ word: innerLetter, times: 1 });
         }
       }
       if (punctuation.some((p) => p === innerLetter)) {
-        totalPunctuation++;
+        totalPunctuation += 1;
       }
     }
     const answer = holder.join('');
@@ -85,20 +89,29 @@ function main() {
     }
     return t;
   }
-  // Searches for single instances.
+  /**
+   * Looks for unique words in a body of submitted text.
+   * @param {*} t - Array of word objects.
+   * @param {*} i - New word that is being checked by the function.
+   * @returns array
+   */
   function singleMemberReduce(t, i) {
     if (t.every((z) => z.word !== i)) {
       t.push({ word: i, times: 1 });
     } else {
       const index = t.findIndex((x) => x.word === i);
-      ++t[index].times;
+      // ++t[index].times;
+      t[index] = {
+        ...t[index],
+        times: t[index].times + 1,
+      };
     }
     totalChars += i.length;
-    for (let z = 0; z < i.length; z++) {
+    for (let z = 0; z < i.length; z += 1) {
       if (vowels.some((v) => v === i[z])) {
-        totalVowels++;
+        totalVowels += 1;
       } else {
-        totalConsonants++;
+        totalConsonants += 1;
       }
     }
     return t;
@@ -110,7 +123,7 @@ function main() {
         t.push({ word: `${arr[index]}${arr[index + 1]}`, times: 1 });
       } else {
         const indy = t.findIndex((x) => x.word === `${arr[index]}${arr[index + 1]}`);
-        ++t[indy].times;
+        t[indy].times += 1;
       }
     }
     return t;
@@ -122,7 +135,7 @@ function main() {
         t.push({ word: `${arr[index]} ${arr[index + 1]}`, times: 1 });
       } else {
         const indy = t.findIndex((x) => x.word === `${arr[index]} ${arr[index + 1]}`);
-        ++t[indy].times;
+        t[indy].times += 1;
       }
     }
     return t;
@@ -163,7 +176,7 @@ function main() {
   /// ///////The options button logic.
   optionsButton.addEventListener('click', () => {
     if (opened === 0) {
-      ++opened;
+      opened += 1;
       options.style.display = 'block';
     } else {
       opened = 0;
@@ -171,15 +184,15 @@ function main() {
     }
   });
   /// ///////Number of two letter combinations to display.
-  numOfTwoLetters.addEventListener('input', function () {
+  numOfTwoLetters.addEventListener('input', function onNumOfTwoLettersInput() {
     numOfTwoLettersRep.innerText = this.value;
   });
   /// ///////Number of single words to display.
-  numOfSingleWords.addEventListener('input', function () {
+  numOfSingleWords.addEventListener('input', function onNumOfSingleWordsInput() {
     numOfSingleWordsRep.innerText = this.value;
   });
   /// ///////Number of two word phrases to display.
-  numOfTwoWordPhrases.addEventListener('input', function () {
+  numOfTwoWordPhrases.addEventListener('input', function ofNumTwoWordPhrasesInput() {
     numOfTwoWordPhrasesRep.innerText = this.value;
   });
   /// ///////The primary action/function for this program.
@@ -230,7 +243,7 @@ function main() {
       const totalTime = ((endTime.getTime() - startTime.getTime()) / 1000).toFixed(2);
       // Displaying the primary stats.
       makeHTMLElement('h3', 'Summary', 'summary');
-      makeHTMLElement('p', `Your submitted text contains ${totalSentences} sentences, ${totalChars} characters, ${data.length} total words and ${uniqueWords.length} unique words. With an average of ${(Number.isFinite(data.length / totalSentences) ? (data.length / totalSentences) : 0).toFixed(2)} words and ${(Number.isNaN(totalPunctuation / totalSentences) ? 0 : (totalPunctuation / totalSentences)).toFixed(2)} punctuation marks per sentence, as well as ${(isNaN(totalChars / data.length) ? 0 : (totalChars / data.length)).toFixed(2)} letters per word; each including ${(isNaN(totalVowels / data.length) ? 0 : (totalVowels / data.length)).toFixed(2)} vowels and ${(isNaN(totalConsonants / data.length) ? 0 : (totalConsonants / data.length)).toFixed(2)} consonants. And took ${totalTime || 0} seconds to be evaluated, at a speed of ${(data.length / (totalTime >= 1 ? totalTime : 1)).toFixed(2)} words per second (WPS).`, 'output');
+      makeHTMLElement('p', `Your submitted text contains ${totalSentences} sentences, ${totalChars} characters, ${data.length} total words and ${uniqueWords.length} unique words. With an average of ${(Number.isFinite(data.length / totalSentences) ? (data.length / totalSentences) : 0).toFixed(2)} words and ${(Number.isNaN(totalPunctuation / totalSentences) ? 0 : (totalPunctuation / totalSentences)).toFixed(2)} punctuation marks per sentence, as well as ${(Number.isNaN(totalChars / data.length) ? 0 : (totalChars / data.length)).toFixed(2)} letters per word; each including ${(Number.isNaN(totalVowels / data.length) ? 0 : (totalVowels / data.length)).toFixed(2)} vowels and ${(Number.isNaN(totalConsonants / data.length) ? 0 : (totalConsonants / data.length)).toFixed(2)} consonants. And took ${totalTime || 0} seconds to be evaluated, at a speed of ${(data.length / (totalTime >= 1 ? totalTime : 1)).toFixed(2)} words per second (WPS).`, 'output');
       makeHTMLElement('p', `The estimated reading time for your text is ${(predata.length / 180).toFixed(2)} minutes, while the estimated speaking time is ${(predata.length / 125).toFixed(2)} minutes. Your text also has a novelty score of ${(Number.isNaN((uniqueWords.length / data.length) * 100) ? 0 : ((uniqueWords.length / data.length) * 100)).toFixed(2)}%.`, 'secondaryOutput');
       // Displaying the common single letters used.
       makeHTMLElement('h3', 'Common Single Letters');
