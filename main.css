@@ -153,6 +153,27 @@ li {
     text-align: center;
     margin: 5px;
 }
+.blogPostPreview {
+  width: 100%;
+  padding: 15px;
+  border:1px solid lightgray;
+  text-align: left;
+}
+.blogPostPreview h3 {
+  margin: 0px 0px 5px 0px;
+}
+.blogPostPreview blockquote {
+  font-size: 14px;
+}
+.homePageBlogSpan {
+  font-style: italic;
+}
+.blogPost {
+  text-align: left;
+}
+.blogPost p {
+  margin: 15px 15px 0px 15px;
+}
 #bgColoring {
     position: fixed;
     top: 0px;

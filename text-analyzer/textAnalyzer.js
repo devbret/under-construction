@@ -239,7 +239,6 @@ function main() {
       // Displaying the two letter combos.
       makeHTMLElement('h3', 'Common Two Letter Combos');
       makeParagraphElement('commonLetterCombos');
-      makeHTMLElement('h1', 'Hello, World!', 'hello');
       displayItems(numOfTwoLetters.value, commonLetterCombos, sortTwoLetterCombos);
       // Displaying the common single words used.
       makeHTMLElement('h3', 'Common Single Words');
