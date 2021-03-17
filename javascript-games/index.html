@@ -24,8 +24,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript Games Widget - Bret Bernhoft</title>
     <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="/textAnalyzer.css" />
     <link rel="stylesheet" href="/sqMain.css" />
-    <link rel="stylesheet" href="games.css" />
+    <link rel="stylesheet" href="/games.css" />
   </head>
   <body>
     <div id="bgColoring"></div>
@@ -337,14 +338,15 @@
           <section class="styledPrimary">
             <h2>Technical Skills</h2>
             <div id="skillsDiv">
-              <p>HTML</p>
-              <p>CSS</p>
-              <p>JavaScript</p>
+              <p>JavaScript: ES6</p>
               <p>React</p>
+              <p>Node.js</p>
+              <p>HTML5</p>
+              <p>CSS</p>
               <p>Git</p>
+              <p>ESLint</p>
               <p>RESTful APIs</p>
-              <p>SASS</p>
-              <p>Typescript</p>
+              <p>WordPress</p>
             </div>
           </section>
           <section class="styledPrimary">
@@ -360,7 +362,7 @@
           </section>
         </div>
         <section class="styledPrimary" id="contactInfo">
-          <h2>Contact Information</h2>
+          <h2>Contact Me</h2>
           <p id="socialMedia">
             You can find me on
             <a href="https://www.linkedin.com/in/bernhoftbret/" target="_blank"
@@ -369,6 +371,83 @@
             and <a href="https://github.com/devbret" target="_blank">GitHub</a>.
             Or you can email me via oldbretb@gmail.com.
           </p>
+        </section>
+        <section class="styledPrimary">
+          <h2 class="projectDemo">Text Analyzer</h2>
+          <div id="inputInterface">
+            <input id="userTextInput" placeholder="Enter text here" />
+            <div id="buttons">
+              <button id="optionsButton">Options</button>
+              <button id="submitButton">Submit</button>
+            </div>
+          </div>
+          <div id="options">
+            <h3>Options</h3>
+            <div class="innerOptionsDiv" id="defaultWordsExclude">
+              <input type="checkbox" checked="true" id="exclude" />
+              <p class="optionsTextSpacing">Exclude default words</p>
+            </div>
+            <div class="innerOptionsDiv" id="extraWordsDiv">
+              <input
+                id="extraWords"
+                placeholder="Enter comma separated words here"
+              />
+              <p class="optionsTextSpacingVertical">
+                Additional words to exclude
+              </p>
+            </div>
+            <div class="variableNumbersToDisplay innerOptionsDiv">
+              <div>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="50"
+                  id="numOfTwoLetters"
+                />
+                <p id="numOfTwoLettersRep">50</p>
+              </div>
+              <p class="optionsTextSpacingVertical">
+                Number of two letter combos to display
+              </p>
+            </div>
+            <div class="variableNumbersToDisplay innerOptionsDiv">
+              <div>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="50"
+                  id="numOfSingleWords"
+                />
+                <p id="numOfSingleWordsRep">50</p>
+              </div>
+              <p class="optionsTextSpacingVertical">
+                Number of single words to display
+              </p>
+            </div>
+            <div class="variableNumbersToDisplay innerOptionsDiv">
+              <div>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="50"
+                  id="numOfTwoWordPhrases"
+                />
+                <p id="numOfTwoWordPhrasesRep">50</p>
+              </div>
+              <p class="optionsTextSpacingVertical">
+                Number of two word phrases to display
+              </p>
+            </div>
+          </div>
+          <div id="results">
+            <p>
+              Enter text into the field above, and press Submit for your
+              results. Or press Options for additional settings.
+            </p>
+          </div>
         </section>
       </aside>
       <div id="toTop">
@@ -381,7 +460,8 @@
     </footer>
     <script src="/main.js"></script>
     <script src="/sqMain.js" defer></script>
-    <script src="games.js"></script>
-    <script src="gamesResizer.js"></script>
+    <script src="/games.js"></script>
+    <script src="/gamesResizer.js"></script>
+    <script src="/textAnalyzer.js"></script>
   </body>
 </html>

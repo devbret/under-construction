@@ -312,15 +312,15 @@ function main() {
    * @returns array
    */
   function singleMemberReduce(t, i) {
-    if (t.every((z) => z.word !== i)) {
-      t.push({ word: i, times: 1 });
+    const innerT = t;
+    if (innerT.every((z) => z.word !== i)) {
+      innerT.push({ word: i, times: 1 });
     } else {
-      const index = t.findIndex((x) => x.word === i);
-      // ++t[index].times;
-      t[index] = {
-        ...t[index],
+      const index = innerT.findIndex((x) => x.word === i);
+      innerT[index] = {
+        ...innerT[index],
 
-        times: t[index].times + 1,
+        times: innerT[index].times + 1,
       };
     }
     totalChars += i.length;
@@ -331,35 +331,37 @@ function main() {
         totalConsonants += 1;
       }
     }
-    return t;
+    return innerT;
   }
   // Searches for dual letter instances.
   function dualLetterReduce(t, i, index, arr) {
+    const innerT = t;
     if (arr[index] && arr[index + 1]) {
-      if (t.every((z) => z.word !== `${arr[index]}${arr[index + 1]}`)) {
-        t.push({ word: `${arr[index]}${arr[index + 1]}`, times: 1 });
+      if (innerT.every((z) => z.word !== `${arr[index]}${arr[index + 1]}`)) {
+        innerT.push({ word: `${arr[index]}${arr[index + 1]}`, times: 1 });
       } else {
         const indy = t.findIndex(
           (x) => x.word === `${arr[index]}${arr[index + 1]}`
         );
-        t[indy].times += 1;
+        innerT[indy].times += 1;
       }
     }
-    return t;
+    return innerT;
   }
   // Searches for dual word instances.
   function dualWordReduce(t, i, index, arr) {
+    const innerT = t;
     if (arr[index] && arr[index + 1]) {
-      if (t.every((z) => z.word !== `${arr[index]} ${arr[index + 1]}`)) {
-        t.push({ word: `${arr[index]} ${arr[index + 1]}`, times: 1 });
+      if (innerT.every((z) => z.word !== `${arr[index]} ${arr[index + 1]}`)) {
+        innerT.push({ word: `${arr[index]} ${arr[index + 1]}`, times: 1 });
       } else {
         const indy = t.findIndex(
           (x) => x.word === `${arr[index]} ${arr[index + 1]}`
         );
-        t[indy].times += 1;
+        innerT[indy].times += 1;
       }
     }
-    return t;
+    return innerT;
   }
   // Sorts all arrays, with the highest value being at the front.
   function properSort(a, b) {
@@ -385,14 +387,16 @@ function main() {
     const elem = document.createElement('p');
     elem.id = `${id}`;
     results.appendChild(elem);
+    return elem;
   }
   // Loops through an array and displays a given number of properties.
   function displayItems(length, element, array) {
+    const elem = element;
     for (let i = 0; i < length; i += 1) {
       if (!array[i]) {
         break;
       }
-      element.innerHTML += `${array[i].word} <span class="detailedStats">(${array[i].times})</span>, `;
+      elem.innerHTML += `${array[i].word} <span class="detailedStats">(${array[i].times})</span>, `;
     }
   }
   /// ///////The options button logic.
@@ -533,30 +537,30 @@ function main() {
       );
       // Displaying the common single letters used.
       makeHTMLElement('h3', 'Common Single Letters');
-      makeParagraphElement('commonLetters');
       displayItems(
         sortedUniqueLetters.length,
-        commonLetters,
+        makeParagraphElement('commonLetters'),
         sortedUniqueLetters
       );
       // Displaying the two letter combos.
       makeHTMLElement('h3', 'Common Two Letter Combos');
-      makeParagraphElement('commonLetterCombos');
       displayItems(
         numOfTwoLetters.value,
-        commonLetterCombos,
+        makeParagraphElement('commonLetterCombos'),
         sortTwoLetterCombos
       );
       // Displaying the common single words used.
       makeHTMLElement('h3', 'Common Single Words');
-      makeParagraphElement('commonWords');
-      displayItems(numOfSingleWords.value, commonWords, sortedUniqueWords);
+      displayItems(
+        numOfSingleWords.value,
+        makeParagraphElement('commonWords'),
+        sortedUniqueWords
+      );
       // Displaying the common two word phrases used.
       makeHTMLElement('h3', 'Common Two Word Phrases');
-      makeParagraphElement('commonPhrases');
       displayItems(
         numOfTwoWordPhrases.value,
-        commonPhrases,
+        makeParagraphElement('commonPhrases'),
         sortedTwoWordPhrases
       );
     }

@@ -81,7 +81,8 @@ function gamesGo() {
     makeMaster();
     // Changing certain CSS and HTML properties to accomodate the creation of a new game.
     golden(arg0);
-    arg1.style.backgroundColor = 'gold';
+    const a1 = arg1;
+    a1.style.backgroundColor = 'gold';
     display.innerHTML = '';
     // Library of words to be randomly chosen from.
     const library = [
@@ -320,7 +321,8 @@ function gamesGo() {
     makeMaster();
     // Changing certain CSS and HTML properties to accomodate the creation of a new game.
     golden(arg0);
-    arg1.style.backgroundColor = 'gold';
+    const a1 = arg1;
+    a1.style.backgroundColor = 'gold';
     display.innerHTML = '';
     // Library of questions, and their respective answers, to be randonly selected from.
     const library = [
@@ -832,7 +834,8 @@ function gamesGo() {
     makeMaster();
     // Changing certain CSS and HTML properties to accomodate the creation of a new game.
     golden(arg0);
-    arg1.style.backgroundColor = 'gold';
+    const a1 = arg1;
+    a1.style.backgroundColor = 'gold';
     display.innerHTML = '';
     // Library of challenges and solutions.
     const library = [
@@ -1473,7 +1476,8 @@ function gamesGo() {
     makeMaster();
     // Changing certain CSS and HTML properties to accomodate the creation of a new game.
     golden(arg0);
-    arg1.style.backgroundColor = 'gold';
+    const a1 = arg1;
+    a1.style.backgroundColor = 'gold';
     display.innerHTML = '';
     // Primary interface DIV.
     const primaryInterface = document.createElement('div');
@@ -2571,7 +2575,8 @@ function gamesGo() {
     makeMaster();
     // Changing certain CSS and HTML properties to accomodate the creation of a new game.
     golden(arg0);
-    arg1.style.backgroundColor = 'gold';
+    const a1 = arg1;
+    a1.style.backgroundColor = 'gold';
     display.innerHTML = '';
     // Primary interface DIV.
     const primaryInterface = document.createElement('div');
@@ -2733,7 +2738,7 @@ function gamesGo() {
         k === 'y' ||
         k === 'z'
       ) {
-        ++inputTotal;
+        inputTotal += 1;
       }
     });
     // Main event listener.
