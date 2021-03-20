@@ -84,6 +84,9 @@ a {
 a:hover {
   color: rgb(156, 51, 255);
 }
+i {
+  font-style: italic;
+}
 ul {
   padding: 0px 0px 0px 45px;
   margin: 15px 0px;
@@ -176,6 +179,11 @@ li {
   font-style: italic;
 }
 .blogPost {
+  text-align: left;
+}
+.blogPost h3 {
+  font-size: 22px;
+  margin: 30px 15px 15px 15px;
   text-align: left;
 }
 .blogPost p {
