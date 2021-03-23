@@ -282,7 +282,7 @@ li {
 }
 #skillsDiv p,
 #softSkillsDiv p {
-  margin: 10px;
+  margin: 15px 10px;
   font-weight: bolder;
   font-size: 15px;
 }
