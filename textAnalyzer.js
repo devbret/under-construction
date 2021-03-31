@@ -282,7 +282,6 @@ function main() {
         holder.push(innerLetter);
         if (totalLetters.some((l) => l.word === innerLetter)) {
           const index = totalLetters.findIndex((x) => x.word === innerLetter);
-          // ++totalLetters[index].times;
           totalLetters[index] = {
             ...totalLetters[index],
             times: totalLetters[index].times + 1,

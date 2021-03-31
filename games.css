@@ -42,6 +42,7 @@ button:hover {
 }
 .game:hover {
   cursor: pointer;
+  background: gold;
 }
 .primaryInterface {
   width: 100%;
@@ -121,6 +122,7 @@ button:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: auto;
 }
 #frame {
   width: 300px;

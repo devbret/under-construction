@@ -71,6 +71,7 @@ h1 {
   padding: 5px 30px;
   border: 1px solid lightgray;
   box-shadow: 0px 0px 3px 1px darkgray;
+  white-space: nowrap;
 }
 h2 {
   font-size: 28px;
@@ -115,6 +116,7 @@ li {
   border: 1px solid lightgray;
   font-weight: bold;
   box-shadow: 0px 0px 3px 1px darkgray;
+  white-space: nowrap;
 }
 .mainNav p {
   border: 1px solid lightgray;
@@ -185,6 +187,9 @@ li {
   font-size: 22px;
   margin: 30px 15px 15px 15px;
   text-align: left;
+}
+.githubLink {
+  text-align: center;
 }
 .blogPost p {
   margin: 15px 15px 0px 15px;
@@ -377,9 +382,6 @@ li {
   }
 }
 @media screen and (max-width: 700px) {
-  h1 {
-    font-size: 40px;
-  }
   .homePageProject {
     flex-direction: column;
   }
@@ -413,18 +415,5 @@ li {
   }
   .projectDetails {
     padding: 15px 0px;
-  }
-}
-@media screen and (max-width: 450px) {
-  h1 {
-    font-size: 30px;
-  }
-  header p {
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 300px) {
-  h1 {
-    font-size: 24px;
   }
 }
