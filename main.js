@@ -83,3 +83,8 @@
     ).toFixed(4)} days</b> ago.`;
   }, 1000);
 })(window, document);
+
+import './sq-main';
+import './games';
+import './games-resizer';
+import './header-resize';

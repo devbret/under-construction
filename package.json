@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "eslint": "eslint . --fix",
     "prettier": "prettier --write .",
-    "format": "npm run eslint && npm run prettier"
+    "format": "npm run eslint && npm run prettier",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "parcel-bundler": "^1.12.5",
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0"
   }
