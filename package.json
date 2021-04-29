@@ -8,7 +8,7 @@
     "eslint": "eslint . --fix",
     "prettier": "prettier --write .",
     "format": "npm run eslint && npm run prettier",
-    "dev": "parcel index.html",
+    "dev": "parcel src/index.html",
     "build": "parcel build index.html"
   },
   "repository": {
