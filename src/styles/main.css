@@ -6,7 +6,7 @@
   font-family: sans-serif;
 }
 body {
-  background-image: url('/bg.webp');
+  background-image: url('../static/bg.webp');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;

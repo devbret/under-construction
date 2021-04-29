@@ -85,6 +85,5 @@
 })(window, document);
 
 import './sq-main';
-import './games';
-import './games-resizer';
+import './games/games-resizer';
 import './header-resize';

@@ -9,7 +9,7 @@
     "prettier": "prettier --write .",
     "format": "npm run eslint && npm run prettier",
     "dev": "parcel src/index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build src/index.html"
   },
   "repository": {
     "type": "git",
